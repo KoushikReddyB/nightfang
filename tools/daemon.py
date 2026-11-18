@@ -379,8 +379,10 @@ class AutonomousHunterDaemon:
                 )
                 self.queue.push(next_task)
 
-    def approve_hitl_task(self, request_id: str, operator_id: str = "operator") -> bool:
+    def approve_hitl_task(self, request_id: str, operator_id: str = None) -> bool:
         """Approves a paused task, mints an approval token, and resumes it at CRITICAL priority."""
+        if operator_id is None:
+            operator_id = self.config.authorized_operator
         try:
             token = approve_request(self.state, request_id, operator_id=operator_id)
             resumed = self.queue.resume_approved(request_id)
