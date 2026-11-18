@@ -564,6 +564,7 @@ skills:
   - skills/fuzzing-engine
   - skills/threat-emulation
   - skills/supply-chain-registry
+  - skills/detection-engineering
 
 workflows:
   - workflows/dynamic-supervision.md
