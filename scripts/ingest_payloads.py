@@ -101,16 +101,41 @@ def main():
             "payload_files": files
         }
 
-    # Phase 2: Add entries from VULN_MAP that don't exist in the payloads repo
-    # This supports protocol-specific tests (MQTT, CoAP, Bluetooth) without requiring
-    # payload files in the upstream repository
+    # Phase 2: Process nightfang-generated safe payloads (SAFE_DEFAULT.md files)
+    for entry in sorted(os.listdir(OUT)):
+        if entry.startswith(("._",)):
+            continue
+        
+        path = os.path.join(OUT, entry)
+        if not os.path.isdir(path):
+            continue
+        
+        # Check if this category exists in catalog, if not add it
+        if entry not in catalog:
+            meta = VULN_MAP.get(entry, {"cwe": "N/A", "owasp": "N/A", "safe": False})
+            catalog[entry] = {
+                "cwe": meta["cwe"],
+                "owasp": meta["owasp"],
+                "safe_default": meta["safe"],
+                "payload_files": []
+            }
+        
+        # Add nightsfang payload files to existing entries
+        for root, _, fs in os.walk(path):
+            for f in fs:
+                if f.endswith((".md", ".py", ".txt", ".js", ".sh")):
+                    rel = os.path.relpath(os.path.join(root, f), OUT)
+                    if rel not in catalog[entry]["payload_files"]:
+                        catalog[entry]["payload_files"].append(rel)
+
+    # Phase 3: Add entries from VULN_MAP that don't exist anywhere
     for vuln_class, meta in VULN_MAP.items():
         if vuln_class not in catalog:
             catalog[vuln_class] = {
                 "cwe": meta["cwe"],
                 "owasp": meta["owasp"],
                 "safe_default": meta["safe"],
-                "payload_files": []  # Empty - probe/recon only, no payloads available
+                "payload_files": []
             }
 
     with open(os.path.join(OUT, "index.json"), "w", encoding="utf-8") as f:

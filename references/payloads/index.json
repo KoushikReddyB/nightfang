@@ -691,6 +691,249 @@
       "_template_vuln\\README.md"
     ]
   },
+  "AMSI Bypass": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "AMSI Bypass\\amsi_bypass_probe.py",
+      "AMSI Bypass\\SAFE_DEFAULT.md"
+    ]
+  },
+  "BLE Enumeration": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "BLE Enumeration\\ble_enumeration_probe.py",
+      "BLE Enumeration\\SAFE_DEFAULT.md"
+    ]
+  },
+  "BOLA": {
+    "cwe": "CWE-639",
+    "owasp": "A01:2021",
+    "safe_default": true,
+    "payload_files": [
+      "BOLA\\bola_probe.py",
+      "BOLA\\SAFE_DEFAULT.md"
+    ]
+  },
+  "Bluetooth Packet Injection": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Bluetooth Packet Injection\\bluetooth_packet_injection_probe.py",
+      "Bluetooth Packet Injection\\SAFE_DEFAULT.md"
+    ]
+  },
+  "CoAP Injection": {
+    "cwe": "CWE-943",
+    "owasp": "A03:2021",
+    "safe_default": true,
+    "payload_files": [
+      "CoAP Injection\\coap_injection_probe.py",
+      "CoAP Injection\\SAFE_DEFAULT.md"
+    ]
+  },
+  "Credential Dump Audit": {
+    "cwe": "CWE-522",
+    "owasp": "A02:2021",
+    "safe_default": true,
+    "payload_files": [
+      "Credential Dump Audit\\credential_dump_audit_probe.py",
+      "Credential Dump Audit\\SAFE_DEFAULT.md"
+    ]
+  },
+  "Cron Audit Probe": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Cron Audit Probe\\cron_audit_probe_probe.py",
+      "Cron Audit Probe\\SAFE_DEFAULT.md"
+    ]
+  },
+  "DNS Beaconing Test": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "DNS Beaconing Test\\dns_beaconing_test_probe.py",
+      "DNS Beaconing Test\\SAFE_DEFAULT.md"
+    ]
+  },
+  "Exposed Service Probe": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Exposed Service Probe\\exposed_service_probe_probe.py",
+      "Exposed Service Probe\\SAFE_DEFAULT.md"
+    ]
+  },
+  "IAM Policy Abuse": {
+    "cwe": "N/A",
+    "owasp": "A05:2021",
+    "safe_default": true,
+    "payload_files": [
+      "IAM Policy Abuse\\iam_policy_abuse_probe.py",
+      "IAM Policy Abuse\\SAFE_DEFAULT.md"
+    ]
+  },
+  "IMDS SSRF Probe": {
+    "cwe": "CWE-918",
+    "owasp": "A10:2021",
+    "safe_default": true,
+    "payload_files": [
+      "IMDS SSRF Probe\\imds_ssrf_probe_probe.py",
+      "IMDS SSRF Probe\\SAFE_DEFAULT.md"
+    ]
+  },
+  "JWT Manipulation": {
+    "cwe": "CWE-327",
+    "owasp": "A02:2021",
+    "safe_default": true,
+    "payload_files": [
+      "JWT Manipulation\\jwt_manipulation_probe.py",
+      "JWT Manipulation\\SAFE_DEFAULT.md"
+    ]
+  },
+  "LMQ Fuzzing": {
+    "cwe": "CWE-943",
+    "owasp": "A03:2021",
+    "safe_default": true,
+    "payload_files": [
+      "LMQ Fuzzing\\lmq_fuzzing_probe.py",
+      "LMQ Fuzzing\\SAFE_DEFAULT.md"
+    ]
+  },
+  "MQTT Injection": {
+    "cwe": "CWE-943",
+    "owasp": "A03:2021",
+    "safe_default": true,
+    "payload_files": [
+      "MQTT Injection\\mqtt_injection_probe.py",
+      "MQTT Injection\\SAFE_DEFAULT.md"
+    ]
+  },
+  "Outbound Egress Probe": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Outbound Egress Probe\\outbound_egress_probe_probe.py",
+      "Outbound Egress Probe\\SAFE_DEFAULT.md"
+    ]
+  },
+  "RBAC Privilege Escalation": {
+    "cwe": "CWE-269",
+    "owasp": "A01:2021",
+    "safe_default": true,
+    "payload_files": [
+      "RBAC Privilege Escalation\\rbac_privilege_escalation_probe.py",
+      "RBAC Privilege Escalation\\SAFE_DEFAULT.md"
+    ]
+  },
+  "Reverse Shell Probe": {
+    "cwe": "CWE-77",
+    "owasp": "A03:2021",
+    "safe_default": true,
+    "payload_files": [
+      "Reverse Shell Probe\\reverse_shell_probe_probe.py",
+      "Reverse Shell Probe\\SAFE_DEFAULT.md"
+    ]
+  },
+  "S3 Bucket Enumeration": {
+    "cwe": "N/A",
+    "owasp": "A04:2021",
+    "safe_default": true,
+    "payload_files": [
+      "S3 Bucket Enumeration\\s3_bucket_enumeration_probe.py",
+      "S3 Bucket Enumeration\\SAFE_DEFAULT.md"
+    ]
+  },
+  "SMB Null Session Probe": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "SMB Null Session Probe\\SAFE_DEFAULT.md",
+      "SMB Null Session Probe\\smb_null_session_probe_probe.py"
+    ]
+  },
+  "SNMP Enumeration": {
+    "cwe": "N/A",
+    "owasp": "A05:2021",
+    "safe_default": true,
+    "payload_files": [
+      "SNMP Enumeration\\SAFE_DEFAULT.md",
+      "SNMP Enumeration\\snmp_enumeration_probe.py"
+    ]
+  },
+  "SSL": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": false,
+    "payload_files": [
+      "SSL\\TLS Downgrade Probe\\SAFE_DEFAULT.md",
+      "SSL\\TLS Downgrade Probe\\ssl_tls_downgrade_probe_probe.py"
+    ]
+  },
+  "SUID Binary Audit": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "SUID Binary Audit\\SAFE_DEFAULT.md",
+      "SUID Binary Audit\\suid_binary_audit_probe.py"
+    ]
+  },
+  "Sudoers Audit Probe": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Sudoers Audit Probe\\SAFE_DEFAULT.md",
+      "Sudoers Audit Probe\\sudoers_audit_probe_probe.py"
+    ]
+  },
+  "Topic Injection": {
+    "cwe": "CWE-73",
+    "owasp": "A01:2021",
+    "safe_default": true,
+    "payload_files": [
+      "Topic Injection\\SAFE_DEFAULT.md",
+      "Topic Injection\\topic_injection_probe.py"
+    ]
+  },
+  "Unquoted Path Audit": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Unquoted Path Audit\\SAFE_DEFAULT.md",
+      "Unquoted Path Audit\\unquoted_path_audit_probe.py"
+    ]
+  },
+  "Vault Enumeration": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Vault Enumeration\\SAFE_DEFAULT.md",
+      "Vault Enumeration\\vault_enumeration_probe.py"
+    ]
+  },
+  "Webshell Detection": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Webshell Detection\\SAFE_DEFAULT.md",
+      "Webshell Detection\\webshell_detection_probe.py"
+    ]
+  },
   "SSRF Probe": {
     "cwe": "CWE-918",
     "owasp": "A10:2021",
@@ -709,166 +952,13 @@
     "safe_default": false,
     "payload_files": []
   },
-  "BOLA": {
-    "cwe": "CWE-639",
-    "owasp": "A01:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "JWT Manipulation": {
-    "cwe": "CWE-327",
-    "owasp": "A02:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "AMSI Bypass": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Outbound Egress Probe": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Reverse Shell Probe": {
-    "cwe": "CWE-77",
-    "owasp": "A03:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Webshell Detection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "MQTT Injection": {
-    "cwe": "CWE-943",
-    "owasp": "A03:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Topic Injection": {
-    "cwe": "CWE-73",
-    "owasp": "A01:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "CoAP Injection": {
-    "cwe": "CWE-943",
-    "owasp": "A03:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "BLE Enumeration": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Bluetooth Packet Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "LMQ Fuzzing": {
-    "cwe": "CWE-943",
-    "owasp": "A03:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "SMB Null Session Probe": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "SNMP Enumeration": {
-    "cwe": "N/A",
-    "owasp": "A05:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
   "SSL/TLS Downgrade Probe": {
     "cwe": "N/A",
     "owasp": "A02:2021",
     "safe_default": true,
-    "payload_files": []
-  },
-  "IMDS SSRF Probe": {
-    "cwe": "CWE-918",
-    "owasp": "A10:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "IAM Policy Abuse": {
-    "cwe": "N/A",
-    "owasp": "A05:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "S3 Bucket Enumeration": {
-    "cwe": "N/A",
-    "owasp": "A04:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "RBAC Privilege Escalation": {
-    "cwe": "CWE-269",
-    "owasp": "A01:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Sudoers Audit Probe": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "SUID Binary Audit": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Unquoted Path Audit": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Cron Audit Probe": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Exposed Service Probe": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "DNS Beaconing Test": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Credential Dump Audit": {
-    "cwe": "CWE-522",
-    "owasp": "A02:2021",
-    "safe_default": true,
-    "payload_files": []
-  },
-  "Vault Enumeration": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": []
+    "payload_files": [
+      "ssl_tls_downgrade_probe/SAFE_DEFAULT.md",
+      "ssl_tls_downgrade_probe/ssl_tls_downgrade_probe_probe.py"
+    ]
   }
 }
