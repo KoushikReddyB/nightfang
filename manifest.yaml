@@ -513,6 +513,12 @@ skills:
   - skills/c2-operations
   - skills/initial-access
   - skills/credential-access
+  - skills/mqtt
+  - skills/coap
+  - skills/bluetooth
+  - skills/fuzzing-engine
+  - skills/threat-emulation
+  - skills/supply-chain-registry
 
 workflows:
   - workflows/dynamic-supervision.md
@@ -540,6 +546,8 @@ schemas:
 tools:
   - tools/gateway.py
   - tools/sandbox.py
+  - tools/threat_emulator.py
+  - scripts/fuzzing_engine.py
 
 references:
   - references/sops.md
