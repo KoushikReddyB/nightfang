@@ -191,8 +191,10 @@ class TestPayloadResolverIntegration(unittest.TestCase):
 
     def test_resolver_by_cwe(self):
         matches = self.resolver.get_by_cwe("CWE-89")
-        self.assertEqual(len(matches), 1)
-        self.assertEqual(matches[0]["class"], "SQL Injection")
+        self.assertGreaterEqual(len(matches), 2)  # SQLi + NoSQL Injection
+        classes = [m["class"] for m in matches]
+        self.assertIn("SQL Injection", classes)
+        self.assertIn("NoSQL Injection", classes)
 
     def test_resolver_by_owasp(self):
         matches = self.resolver.get_by_owasp("A03:2021")
