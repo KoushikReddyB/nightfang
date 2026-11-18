@@ -32,6 +32,7 @@ capabilities:
     agent: agents/recon.md
     skills:
       - skills/recon
+      - skills/osint
 
   - id: web-application-security
     description: "OWASP Top 10, injection flaws, access control, and SPA assessment"
@@ -565,6 +566,10 @@ skills:
   - skills/threat-emulation
   - skills/supply-chain-registry
   - skills/detection-engineering
+  - skills/osint
+  - skills/phishing
+  - skills/threat-modeling
+  - skills/secure-code-review
 
 workflows:
   - workflows/dynamic-supervision.md

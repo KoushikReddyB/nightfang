@@ -4,7 +4,7 @@
 #
 # Transforms Hermes into NIGHTFANG:
 # - Injects the NIGHTFANG Security Intelligence Layer persona & constitution
-# - Links all 37 security skills & 47 Python execution tools
+# - Links all 41 security skills & 47 Python execution tools
 # - Configures the Execution Policy Gateway and Sandbox
 # - Installs the 'nightfang' launcher CLI
 # ============================================================
@@ -99,7 +99,7 @@ if [[ -e "$NF_SKILL_LINK" || -L "$NF_SKILL_LINK" ]]; then
     rm -rf "$NF_SKILL_LINK"
 fi
 ln -s "$NIGHTFANG_ROOT/skills" "$NF_SKILL_LINK"
-success "Linked 37 skills and 46 agents to $NF_SKILL_LINK"
+success "Linked 41 skills and 46 agents to $NF_SKILL_LINK"
 
 # 4. Install System Prompt & Configuration
 info "Infusing Hermes with NIGHTFANG persona & constitution..."
