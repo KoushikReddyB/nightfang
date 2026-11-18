@@ -84,7 +84,7 @@ Nightfang strictly enforces the separation of concerns across the pack:
 - **Authorization Gate is not a one-time check**: scope is re-verified at every capability boundary — before the Capability Router selects a workflow, before agent delegation, and before any tool invocation.
 
 ### Agent Exposure Taxonomy: Direct vs. Delegated Agents
-NIGHTFANG deploys **37 specialized agents** organized into two operational tiers:
+NIGHTFANG deploys **47 specialized agents** organized into two operational tiers:
 1. **Direct Entrypoint Agents (28 agents)**: Directly reachable via the Capability Router from incoming operator requests matching `manifest.yaml capabilities[]`. Because `scanner` handles 3 distinct network/web/API capabilities, and `recon`, `privesc-advisor`, and `c2-operator` handle dual capabilities, 28 direct agents service all 33 registered capabilities (including `supervisor` for autonomous supervision).
 2. **Delegated Specialist Agents (9 agents)**: Secondary specialists invoked downstream by workflows or primary agents to perform deep analytical or lifecycle sub-tasks:
    - **`detection-engineer`**: Invoked by purple-team workflows and `reporter` to author vendor-neutral Sigma rules, Sentinel KQL, and Splunk SPL queries.

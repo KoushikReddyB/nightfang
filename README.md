@@ -160,7 +160,7 @@ Cover all 33 registered capabilities from `manifest.yaml`:
 - **`database-attacker`**: Relational and NoSQL database security, privilege escalation, and injection auditing.
 - **`social-engineer`**: Authorized phishing template design, credential harvest simulation, and awareness testing.
 
-### 2. Delegated Specialist Agents (9 Agents)
+### 2. Delegated Specialist Agents (19 Agents)
 Invoked downstream by workflows or primary agents for specialized lifecycle sub-tasks:
 - **`detection-engineer`**: Authors machine-readable Sigma rules, Sentinel KQL queries, and Splunk SPL logic.
 - **`threat-modeler`**: STRIDE/PASTA architectural threat modeling prior to active testing.
@@ -171,10 +171,19 @@ Invoked downstream by workflows or primary agents for specialized lifecycle sub-
 - **`payload-crafter`**: Synthesizes benign, non-destructive proof-of-concept verification payloads.
 - **`traffic-analyzer`**: PCAP network traffic dissection and covert beaconing detection.
 - **`opsec-anonymizer`**: Egress proxy validation, multi-hop routing, and network deconfliction.
+- **`protocol-pentester`**: Custom binary protocol fuzzing, proprietary IoT protocol reverse engineering, and protocol-level vulnerability discovery.
+- **`bug-bounty-agent`**: Automated bug bounty orchestration, finding triage, and platform submission workflow.
+- **`blue-team-agent`**: Defensive operations, detection engineering, and incident response simulation.
+- **`deception-agent`**: Honeypot management, decoy infrastructure deployment, and attacker behavioral analysis.
+- **`api-fuzzer`**: API contract validation, edge case discovery, and parameter space enumeration.
+- **`firmware-analyst`**: IoT firmware extraction, static analysis, and embedded system security assessment.
+- **`webshell-detector`**: Post-intrusion webshell discovery, classification, and cleanup verification.
+- **`zero-day-analyzer`**: Novel vulnerability research and proof-of-concept synthesis.
+- **`config-drift-agent`**: Security posture monitoring, baseline comparison, and configuration drift detection.
 
 ---
 
-## 31 Security Skills
+## 37 Security Skills
 
 Located in `skills/`, loaded on-demand:
 `recon`, `web`, `api`, `network`, `cloud`, `container`, `cicd`, `active-directory`, `wireless`, `mobile`, `iot`, `ot-ics`, `crypto`, `forensics`, `supply-chain`, `grc`, `cti`, `purple-team`, `privilege-escalation`, `post-exploitation`, `ai-security`, `hunting`, `attack-chain`, `remediation`, `reporting`, `utility`, `defense-evasion`, `c2-operations`, `initial-access`, `credential-access`, `reverse-engineering`.
