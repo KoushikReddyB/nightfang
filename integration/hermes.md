@@ -28,7 +28,7 @@ NIGHTFANG is not an isolated command-line script — it is the **security brain 
 │                       Security Orchestration Layer                     │
 ├───────────────────┬───────────────────┬────────────────────────────────┤
 │      Agents       │      Skills       │           Workflows            │
-│    (37 Agents)    │    (31 Skills)    │         (17 Workflows)         │
+│    (47 Agents)    │    (37 Skills)    │         (17 Workflows)         │
 ├───────────────────┴───────────────────┴────────────────────────────────┤
 │                   Autonomous Hunter Engine Daemon                      │
 │            PriorityDAG Task Queue • Recursive Lead Expansion           │

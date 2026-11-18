@@ -23,7 +23,7 @@ When installed into Hermes, NIGHTFANG infuses Hermes with its security persona, 
 │                       Security Orchestration Layer                     │
 ├───────────────────┬───────────────────┬────────────────────────────────┤
 │      Agents       │      Skills       │           Workflows            │
-│    (37 Agents)    │    (31 Skills)    │         (17 Workflows)         │
+│    (47 Agents)    │    (37 Skills)    │         (17 Workflows)         │
 ├───────────────────┴───────────────────┴────────────────────────────────┤
 │                   Autonomous Hunter Engine Daemon                      │
 │            PriorityDAG Task Queue • Recursive Lead Expansion           │
@@ -125,7 +125,7 @@ powershell -ExecutionPolicy Bypass -File install\status.ps1
 
 ---
 
-## 37 Specialized Agents (Taxonomy)
+## 47 Specialized Agents (Taxonomy)
 
 NIGHTFANG deploys **47 specialized agents** across two operational tiers:
 
