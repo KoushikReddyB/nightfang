@@ -99,7 +99,7 @@ if [[ -e "$NF_SKILL_LINK" || -L "$NF_SKILL_LINK" ]]; then
     rm -rf "$NF_SKILL_LINK"
 fi
 ln -s "$NIGHTFANG_ROOT/skills" "$NF_SKILL_LINK"
-success "Linked 37 skills and 47 agents to $NF_SKILL_LINK"
+success "Linked 37 skills and 46 agents to $NF_SKILL_LINK"
 
 # 4. Install System Prompt & Configuration
 info "Infusing Hermes with NIGHTFANG persona & constitution..."
@@ -159,7 +159,7 @@ export HERMES_CONFIG="$NF_HERMES_HOME/config.yaml"
 # Banner
 if [ -t 1 ]; then
     printf '\033[1;36m🦇 NIGHTFANG Security Intelligence Layer (Active)\033[0m\n'
-    printf '\033[1;35m47 Specialized Agents | 33 Capabilities | Gateway Sandbox: ACTIVE\033[0m\n\n'
+    printf '\033[1;35m46 Specialized Agents | 33 Capabilities | Gateway Sandbox: ACTIVE\033[0m\n\n'
 fi
 
 if command -v hermes >/dev/null 2>&1; then
