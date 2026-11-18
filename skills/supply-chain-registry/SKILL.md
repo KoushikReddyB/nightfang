@@ -74,6 +74,26 @@ Verify provenance for all built artifacts:
 - Sigstore/cosign signature verification
 - Reproducible build checks (compare binary hashes across build environments)
 
+### 3.3 SBOM Generation via `scripts/generate_sbom.py`
+Generate SBOM artifacts programmatically from a project root:
+```bash
+# Generate all formats (SPDX 2.3 JSON + CycloneDX 1.5 JSON + CycloneDX 1.5 XML)
+python scripts/generate_sbom.py --root /path/to/repo --format all -o /tmp/sbom
+
+# Single format
+python scripts/generate_sbom.py --root /path/to/repo --format spdx-json -o sbom.json
+python scripts/generate_sbom.py --root /path/to/repo --format cyclonedx-xml -o sbom.xml
+
+# With custom namespace
+python scripts/generate_sbom.py --root /path/to/repo --namespace "https://org.example.com/sbom/repo" -o sbom
+```
+
+Supported registries: npm (`package-lock.json`), pip (`requirements.txt`, `Pipfile.lock`), Go (`go.mod`/`go.sum`), Maven (`pom.xml`).
+
+Each generated SBOM includes:
+- SPDX 2.3: `spdxVersion`, `SPDXID`, `name`, `documentNamespace`, `creationInfo`, `packages`, `relationships`
+- CycloneDX 1.5: `bomFormat`, `specVersion`, `serialNumber`, `version`, `metadata`, `components`, `dependencies`
+
 ---
 
 ## 4. Detection Rule Generation
