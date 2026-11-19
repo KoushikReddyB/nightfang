@@ -65,8 +65,9 @@ Copy-Item "$NightfangRoot\adapters\hermes\config.yaml" "$NfHermesHome\config.yam
 if (Test-Path "$HermesHome\config.yaml") {
     $existingConfig = Get-Content "$HermesHome\config.yaml" -Raw
     if ($existingConfig -notmatch "nightfang") {
-        Add-Content -Path "$HermesHome\config.yaml" -Value "`n# --- NIGHTFANG Extension Configuration ---`n"
-        Get-Content "$NightfangRoot\adapters\hermes\config.yaml" | Add-Content -Path "$HermesHome\config.yaml"
+        $backupTs = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
+        Copy-Item "$HermesHome\config.yaml" "$HermesHome\config.yaml.backup.$backupTs" -Force
+        Add-Content -Path "$HermesHome\config.yaml" -Value "`n# --- NIGHTFANG Extension Configuration ---`nnightfang:`n  config: `"$NfHermesHome\config.yaml`"`n"
     }
 } else {
     Copy-Item "$NightfangRoot\adapters\hermes\config.yaml" "$HermesHome\config.yaml" -Force

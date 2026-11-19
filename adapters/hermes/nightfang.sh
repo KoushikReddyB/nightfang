@@ -2,7 +2,15 @@
 set -e
 
 HERMES_HOME="${HERMES_HOME:-$HOME/.hermes}"
-NIGHTFANG_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+if [ -z "${NIGHTFANG_ROOT:-}" ]; then
+    if [ -f "$(dirname "${BASH_SOURCE[0]}")/../../tools/gateway.py" ]; then
+        NIGHTFANG_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+    elif [ -f "$(dirname "${BASH_SOURCE[0]}")/tools/gateway.py" ]; then
+        NIGHTFANG_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    elif [ -f "$HERMES_HOME/nightfang/installation.json" ]; then
+        NIGHTFANG_ROOT="$(grep -o '"root": *"[^"]*"' "$HERMES_HOME/nightfang/installation.json" | cut -d'"' -f4)"
+    fi
+fi
 
 export HERMES_HOME
 export NIGHTFANG_ROOT
@@ -27,7 +35,7 @@ elif [ "$1" = "--test" ]; then
 fi
 
 if command -v hermes >/dev/null 2>&1; then
-    exec hermes --system-prompt "$HERMES_SYSTEM_PROMPT" --config "$HERMES_CONFIG" "$@"
+    exec hermes "$@"
 else
     echo "[*] Hermes binary not detected in PATH."
     if [ "$#" -gt 0 ]; then

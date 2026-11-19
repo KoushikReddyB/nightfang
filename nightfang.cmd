@@ -37,7 +37,7 @@ if "%~1"=="--test" (
 
 where hermes >nul 2>&1
 if %ERRORLEVEL% equ 0 (
-    hermes --system-prompt "%HERMES_SYSTEM_PROMPT%" --config "%HERMES_CONFIG%" %*
+    hermes %*
 ) else (
     echo [*] Hermes binary not detected in PATH.
     if not "%~1"=="" (

@@ -114,9 +114,11 @@ cp "$CONFIG_SRC" "$NF_HERMES_HOME/config.yaml"
 # Safely inject nightfang configuration without destroying Hermes's root config.yaml
 if [[ -f "$HERMES_HOME/config.yaml" ]]; then
     if ! grep -q "nightfang" "$HERMES_HOME/config.yaml"; then
+        cp "$HERMES_HOME/config.yaml" "$HERMES_HOME/config.yaml.backup.$(date +%s)"
         echo "" >> "$HERMES_HOME/config.yaml"
         echo "# --- NIGHTFANG Extension Configuration ---" >> "$HERMES_HOME/config.yaml"
-        cat "$CONFIG_SRC" >> "$HERMES_HOME/config.yaml"
+        echo "nightfang:" >> "$HERMES_HOME/config.yaml"
+        echo "  config: \"$NF_HERMES_HOME/config.yaml\"" >> "$HERMES_HOME/config.yaml"
     fi
 else
     cp "$CONFIG_SRC" "$HERMES_HOME/config.yaml"
@@ -159,20 +161,36 @@ export HERMES_CONFIG="$NF_HERMES_HOME/config.yaml"
 # Banner
 if [ -t 1 ]; then
     printf '\033[1;36m🦇 NIGHTFANG Security Intelligence Layer (Active)\033[0m\n'
-    printf '\033[1;35m37 Specialized Agents | 33 Capabilities | Gateway Sandbox: ACTIVE\033[0m\n\n'
+    printf '\033[1;35m37 Specialized Agents | 33 Capabilities | Autonomous Hunter: READY\033[0m\n\n'
+fi
+
+if [ "\$1" = "--daemon" ]; then
+    shift
+    exec python3 "\$NIGHTFANG_ROOT/tools/daemon.py" "\$@"
+elif [ "\$1" = "--hunt" ]; then
+    shift
+    exec python3 "\$NIGHTFANG_ROOT/tools/daemon.py" --continuous "\$@"
+elif [ "\$1" = "--test" ]; then
+    python3 "\$NIGHTFANG_ROOT/tools/daemon.py" --test
+    python3 "\$NIGHTFANG_ROOT/tools/gateway.py"
+    exit 0
 fi
 
 if command -v hermes >/dev/null 2>&1; then
-    exec hermes --system-prompt "\$HERMES_SYSTEM_PROMPT" --config "\$HERMES_CONFIG" "\$@"
+    exec hermes "\$@"
 else
     # Fallback to python runner or standalone agent if hermes binary is not in PATH
     echo "[*] Hermes binary not detected in PATH. Starting in NIGHTFANG Gateway Mode..."
     if [ "\$#" -gt 0 ]; then
-        python3 "$NIGHTFANG_ROOT/tools/gateway.py" "\$@"
+        exec python3 "\$NIGHTFANG_ROOT/tools/daemon.py" "\$@"
     else
-        echo "Usage: nightfang [options] or install 'hermes' to use full agent runtime."
-        echo "Interactive Gateway & Sandbox ready."
-        python3 -i -c "import sys; sys.path.insert(0, '$NIGHTFANG_ROOT/tools'); from gateway import ExecutionPolicyGateway; print('[✓] ExecutionPolicyGateway imported as gateway.')"
+        echo "Usage:"
+        echo "  nightfang --daemon --target <domain>    Run continuous autonomous hunter"
+        echo "  nightfang --hunt <domain>               Launch autonomous attack chain"
+        echo "  nightfang --test                        Run gateway and daemon self-tests"
+        echo ""
+        echo "Starting interactive Autonomous Hunter session..."
+        python3 -i -c "import sys; sys.path.insert(0, '\$NIGHTFANG_ROOT/tools'); from daemon import AutonomousHunterDaemon; from gateway import ExecutionPolicyGateway; print('[*] NIGHTFANG Autonomous Hunter and Gateway loaded.')"
     fi
 fi
 EOF
