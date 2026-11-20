@@ -69,6 +69,7 @@ The entries below are derived directly from `manifest.yaml capabilities[]`. The 
 
 | `id` | `target_types[]` | `workflow` | `agent` | `skills[]` |
 | :--- | :--- | :--- | :--- | :--- |
+| `autonomous-supervision` | `engagement_scope`, `target_specification`, `autonomous_engagement`, `swarm_supervision` | `dynamic-supervision` | `supervisor` | `skills/utility`, `skills/hunting`, `skills/reporting` |
 | `attack-surface-mapping` | `domain`, `cidr`, `ip_range`, `hostname`, `asset_inventory` | `standard-pentest` | `recon` | `skills/recon` |
 | `web-application-security` | `web_app`, `url`, `http`, `https`, `spa`, `cms` | `web-assessment` | `scanner` | `skills/web`, `skills/hunting` |
 | `api-security` | `rest_api`, `graphql`, `grpc`, `openapi`, `swagger`, `json_api` | `api-assessment` | `scanner` | `skills/api`, `skills/hunting` |
@@ -97,6 +98,12 @@ The entries below are derived directly from `manifest.yaml capabilities[]`. The 
 | `command-and-control-resilience` | `c2_infrastructure`, `egress_boundary`, `network_perimeter`, `covert_channel`, `proxy_gateway` | `purple-team` | `c2-operator` | `skills/c2-operations`, `skills/post-exploitation` |
 | `initial-access-assessment` | `vpn_gateway`, `remote_access`, `perimeter_portal`, `payload_delivery`, `motw_container` | `standard-pentest` | `recon` | `skills/initial-access`, `skills/recon` |
 | `credential-access-security` | `lsass_memory`, `credential_vault`, `sam_database`, `dpapi_store`, `session_token` | `standard-pentest` | `privesc-advisor` | `skills/credential-access`, `skills/privilege-escalation` |
+| `reverse-engineering` | `binary_file`, `firmware_image`, `compiled_app`, `malware_executable`, `uefi_rom` | `reverse-engineering` | `reverse-engineer` | `skills/reverse-engineering`, `skills/iot`, `skills/mobile` |
+| `database-security` | `database_server`, `sql_endpoint`, `db_credential`, `nosql_store` | `standard-pentest` | `database-attacker` | `skills/web`, `skills/network`, `skills/privilege-escalation` |
+| `social-engineering` | `social_target`, `phishing_campaign`, `pretext_scenario`, `employee_profile` | `social-engineering` | `social-engineer` | `skills/initial-access`, `skills/recon`, `skills/utility` |
+| `red-team-operations` | `redteam_scope`, `adversary_profile`, `crown_jewels`, `assumed_breach` | `red-team` | `c2-operator` | `skills/c2-operations`, `skills/post-exploitation`, `skills/defense-evasion` |
+| `extended-osint-reach` | `social_profile`, `x_account`, `reddit_thread`, `youtube_channel`, `code_repo`, `developer_handle` | `standard-pentest` | `recon` | `skills/recon`, `skills/utility` |
+| `repo-graph-memory` | `source_code`, `git_repo`, `ast_graph`, `code_workspace`, `repo_graph_memory` | `supply-chain-assessment` | `code-auditor` | `skills/web`, `skills/api`, `skills/crypto` |
 
 ---
 
@@ -138,6 +145,12 @@ Hermes or NIGHTFANG must classify the operator's input before routing. The `Clas
 | Unverified exploit or attack hypothesis | `unverified_exploit` |
 | Engagement ID (report generation request) | `engagement_findings` |
 | Audit deliverable request | `audit_deliverable` |
+| Social handle, X post, Reddit thread, YouTube video URL | `social_profile`, `x_account`, `reddit_thread`, `youtube_channel`, or `developer_handle` |
+| Source code repository, AST knowledge graph, repo directory | `source_code`, `git_repo`, `ast_graph`, `code_workspace`, or `repo_graph_memory` |
+| Binary executable, ELF/PE/Mach-O file, firmware image | `binary_file`, `firmware_image`, `compiled_app`, `malware_executable`, or `uefi_rom` |
+| Database server, SQL query endpoint, database credentials | `database_server`, `sql_endpoint`, `db_credential`, or `nosql_store` |
+| Social engineering target, pretexting plan, phishing vector | `social_target`, `phishing_campaign`, `pretext_scenario`, or `employee_profile` |
+| Red team scenario scope, adversary emulation plan | `redteam_scope`, `adversary_profile`, `crown_jewels`, or `assumed_breach` |
 
 If classification is ambiguous, NIGHTFANG asks the operator to clarify before routing.
 

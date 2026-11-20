@@ -13,19 +13,26 @@ I discover and map the reachable attack surface within authorized target boundar
 - Fingerprint service banners, web frameworks, CMS platforms, and perimeter security controls (WAFs).
 - Maintain an up-to-date, deduplicated target asset inventory in `engagement.scope.inventory`.
 - Emit pre-exploit informational and low-severity findings when exposed credentials, open directories, or sensitive files (`.git`, `.env`) are uncovered.
+- Harvest developer leaks, technical conference disclosures, and social mentions using zero-fee multi-engine OSINT.
+- Automate live browser crawling of client-rendered SPAs and extract token-efficient Markdown representations of web targets.
 
 ---
 
 ## 2. Invocation Trigger (WHEN)
 - Invoked in **Phase 2 (Reconnaissance)** of standard engagements.
-- Triggered by target inputs: domain names, hostnames, IP blocks, CIDR ranges, or root organizations.
+- Triggered by target inputs: domain names, hostnames, IP blocks, CIDR ranges, root organizations, social profiles, developer handles, or video URLs.
 
 ---
 
 ## 3. Skills Consumed (HOW)
-I delegate execution methodologies to domain skills:
+I delegate execution methodologies to domain skills and native sensory perception lenses:
 - **`skills/recon`**: For passive OSINT, DNS brute-forcing/harvesting, port probing, and technology fingerprinting.
 - **`skills/utility`**: For rapid triage checklists and asset deduplication against engagement memory.
+- **Frontline Sensory Perception Lenses**:
+  - `Agent-Reach`: Zero-fee multi-platform search across X, Reddit, YouTube transcripts, and GitHub.
+  - `defuddle`: Token-efficient DOM distillation (80% context savings) for crawled HTML pages.
+  - `youtube-skills`: Deep video transcript analysis and chapter indexing for technical disclosures.
+  - `browser-harness`: Live authenticated Chrome automation for SPA exploration and client-side DOM analysis.
 
 ---
 

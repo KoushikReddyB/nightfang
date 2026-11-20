@@ -85,7 +85,7 @@ Nightfang strictly enforces the separation of concerns across the pack:
 
 ### Agent Exposure Taxonomy: Direct vs. Delegated Agents
 NIGHTFANG deploys **37 specialized agents** organized into two operational tiers:
-1. **Direct Entrypoint Agents (28 agents)**: Directly reachable via the Capability Router from incoming operator requests matching `manifest.yaml capabilities[]`. Because `scanner` handles 3 distinct network/web/API capabilities, and `recon`, `privesc-advisor`, and `c2-operator` handle dual capabilities, 28 direct agents service all 33 registered capabilities (including `supervisor` for autonomous supervision).
+1. **Direct Entrypoint Agents (28 agents)**: Directly reachable via the Capability Router from incoming operator requests matching `manifest.yaml capabilities[]`. These 28 direct agents service 34 direct capabilities (and 35 total registered capabilities including `repo-graph-memory`), with `supervisor` managing autonomous supervision, `scanner` and `recon` handling 3 capabilities each, and `privesc-advisor` and `c2-operator` handling dual capabilities.
 2. **Delegated Specialist Agents (9 agents)**: Secondary specialists invoked downstream by workflows or primary agents to perform deep analytical or lifecycle sub-tasks:
    - **`detection-engineer`**: Invoked by purple-team workflows and `reporter` to author vendor-neutral Sigma rules, Sentinel KQL, and Splunk SPL queries.
    - **`threat-modeler`**: Invoked during Phase 1 architecture review to decompose trust boundaries and data flows (STRIDE/PASTA) before active probing.
@@ -160,7 +160,7 @@ flowchart TD
     REP --> O["11. Host Runtime Delivery<br/>(Hermes Interface)"]
 ```
 
-### Capability Router Summary (33 Capabilities)
+### Capability Router Summary (35 Capabilities)
 - **Autonomous Supervision & Dynamic Orchestration** (`autonomous-supervision`) $\to$ `workflows/dynamic-supervision.md` $\to$ **`supervisor`** (`skills/utility`, `skills/hunting`, `skills/reporting`)
 - **Domains, CIDRs, IPs** (`attack-surface-mapping`) $\to$ `workflows/standard-pentest.md` $\to$ **`recon`** (`skills/recon`)
 - **Web Applications, URLs, SPAs** (`web-application-security`) $\to$ `workflows/web-assessment.md` $\to$ **`scanner`** (`skills/web`, `skills/hunting`)
@@ -194,6 +194,8 @@ flowchart TD
 - **Relational & NoSQL Database Security** (`database-security`) $\to$ `workflows/standard-pentest.md` $\to$ **`database-attacker`** (`skills/web`, `skills/network`, `skills/privilege-escalation`)
 - **Authorized Social Engineering** (`social-engineering`) $\to$ `workflows/social-engineering.md` $\to$ **`social-engineer`** (`skills/initial-access`, `skills/recon`, `skills/utility`)
 - **Full-Scope Adversary Simulation** (`red-team-operations`) $\to$ `workflows/red-team.md` $\to$ **`c2-operator`** (`skills/c2-operations`, `skills/post-exploitation`, `skills/defense-evasion`)
+- **Extended Zero-Fee OSINT Reach** (`extended-osint-reach`) $\to$ `workflows/standard-pentest.md` $\to$ **`recon`** (`skills/recon`, `skills/utility`)
+- **Repository Semantic AST Knowledge Graph** (`repo-graph-memory`) $\to$ `workflows/supply-chain-assessment.md` $\to$ **`code-auditor`** (`skills/web`, `skills/api`, `skills/crypto`)
 
 ---
 

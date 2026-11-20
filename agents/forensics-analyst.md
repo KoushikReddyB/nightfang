@@ -12,6 +12,7 @@ I analyze compromised system artifacts, memory images, and incident evidence:
 - Reconstruct event timelines from disk artifacts (Prefetch, Shimcache, Amcache, MFT, Shellbags).
 - Extract Indicators of Compromise (IOCs) and draft YARA rules for threat hunting.
 - Maintain strict chain of custody and cryptographic verification of all evidence artifacts.
+- Dynamically retrieve deep-forensic and hardware incident playbooks from `references/playbook_catalog.md`.
 
 ---
 
@@ -24,6 +25,8 @@ I analyze compromised system artifacts, memory images, and incident evidence:
 ## 3. Skills Consumed (HOW)
 - **`skills/forensics`**: For memory analysis, timeline reconstruction, and YARA rule generation.
 - **`skills/network`**: For network traffic and PCAP stream reconstruction.
+- **Supplementary Catalogs**:
+  - `references/playbook_catalog.md`: For exotic hardware, TPM, kernel rootkit, and deep-forensics playbooks.
 
 ---
 
