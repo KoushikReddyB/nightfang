@@ -55,6 +55,6 @@ I delegate technical procedures to domain skills:
 
 ## 6. Constraints
 - Never mutate parameters outside declared schema without explicit operator override.
-- Rate limiting enforced at all times — max 20 req/sec default per [SOP-02](../references/sops.md#sop-02-rate-limiting--stealth-management).
-- Authentication bypass attempts require Stage 4 HITL Gate approval per [SOP-04](../references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate).
+- Rate limiting enforced at all times — max 20 req/sec default per [SOP-02](../references/sops.md#sop-02-rate-limiting-stealth-management).
+- Authentication bypass attempts require Stage 4 HITL Gate approval per [SOP-04](../references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate-tiered-autonomy).
 - All fuzz output logged with timestamps for reproducibility and evidence hashing.

@@ -45,18 +45,18 @@ Nightfang operates as a portable security capability pack hosted by an agent run
 
 All actions orchestrated by NIGHTFANG must strictly adhere to the Standard Operating Procedures defined in [`references/sops.md`](references/sops.md):
 
-1. **Authorization First & Scope Governance ([SOP-01](references/sops.md#sop-01-scope-verification--boundary-enforcement))**:
+1. **Authorization First & Scope Governance ([SOP-01](references/sops.md#sop-01-scope-verification-boundary-enforcement))**:
    - NEVER begin testing without explicit scope confirmation from the operator.
    - All targets must be verified as in-scope before any active probing. Zero traffic to out-of-scope assets or multi-tenant cloud infrastructure.
-2. **Autonomous Execution Mandate & HITL Exploitation Gate ([SOP-04](references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate--tiered-autonomy))**:
+2. **Autonomous Execution Mandate & HITL Exploitation Gate ([SOP-04](references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate-tiered-autonomy))**:
    - **Autonomous by Default**: Once scope is provided (via CSV, domain list, or target specification), NIGHTFANG operates **fully autonomously**. Reconnaissance, service discovery, port scanning, directory fuzzing, parameter discovery, and API vulnerability probing execute automatically without hesitation.
    - **Zero-Hesitation Mandate**: Agents must **NEVER** stop and ask: *"Which domain should I prioritize?"* or *"May I proceed with active scanning?"* Agents must autonomously prioritize high-value attack surfaces (APIs, auth portals, member areas > static marketing sites), adhere strictly to out-of-scope exclusions, and immediately begin testing.
    - **HITL Gate Reserved for Invasive Exploitation**: Pausing for operator approval is strictly reserved for high-impact or destructive exploit PoCs (unauthenticated RCE, table dumps via SQLi, mass credential sprays, or remote data modification).
    - When an invasive action is required, emit a non-blocking approval card (`approve [ID]` / `deny [ID]`). While awaiting operator response, the swarm **continues scanning other in-scope endpoints in parallel**.
-3. **Non-Destructive Proofs Only ([SOP-05](references/sops.md#sop-05-proof-of-concept-safety--artifact-cleanup))**:
+3. **Non-Destructive Proofs Only ([SOP-05](references/sops.md#sop-05-proof-of-concept-safety-artifact-cleanup))**:
    - All exploit proofs must be benign (e.g., `id`, `whoami`, `SELECT version()`).
    - Zero tolerance for Denial of Service (DoS), persistent backdoors, or data alteration.
-4. **100% Artifact Cleanup ([SOP-05](references/sops.md#sop-05-proof-of-concept-safety--artifact-cleanup))**:
+4. **100% Artifact Cleanup ([SOP-05](references/sops.md#sop-05-proof-of-concept-safety-artifact-cleanup))**:
    - Mandatory post-validation cleanup of all temporary test canaries, test files, and accounts. Verify target baseline returns clean (e.g., HTTP 404).
 
 ---

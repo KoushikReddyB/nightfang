@@ -13,7 +13,7 @@ d3fend_techniques: [D3-MTA, D3-EAA, D3-FCI, D3-EI]
 
 Methodology for assessing external perimeter resilience, evaluating payload delivery filter efficacy, analyzing client-side execution boundaries, and auditing application search order hijacking vectors.
 
-> **SAFETY & HITL GOVERNANCE**: Active testing against external gateways or staging simulated payload delivery mechanisms strictly requires explicit Human-in-the-Loop authorization per [SOP-04](../../references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate). Zero unauthorized credential stuffing or destructive execution permitted per [SOP-05](../../references/sops.md#sop-05-proof-of-concept-safety--artifact-cleanup).
+> **SAFETY & HITL GOVERNANCE**: Active testing against external gateways or staging simulated payload delivery mechanisms strictly requires explicit Human-in-the-Loop authorization per [SOP-04](../../references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate-tiered-autonomy). Zero unauthorized credential stuffing or destructive execution permitted per [SOP-05](../../references/sops.md#sop-05-proof-of-concept-safety-artifact-cleanup).
 
 ---
 

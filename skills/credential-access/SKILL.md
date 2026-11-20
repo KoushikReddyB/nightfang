@@ -13,7 +13,7 @@ d3fend_techniques: [D3-CAD, D3-EAA, D3-PSA, D3-CAA]
 
 Methodology for assessing identity store security, auditing local host credential protection mechanisms, evaluating EDR alerting on memory inspection, and testing token theft resistance.
 
-> **SAFETY & HITL GOVERNANCE**: Active extraction of memory dumps, accessing local credential vaults, or reading sensitive process tokens strictly requires explicit Human-in-the-Loop authorization per [SOP-04](../../references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate). Zero production credentials may be altered, cracked, or exfiltrated per [SOP-05](../../references/sops.md#sop-05-proof-of-concept-safety--artifact-cleanup).
+> **SAFETY & HITL GOVERNANCE**: Active extraction of memory dumps, accessing local credential vaults, or reading sensitive process tokens strictly requires explicit Human-in-the-Loop authorization per [SOP-04](../../references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate-tiered-autonomy). Zero production credentials may be altered, cracked, or exfiltrated per [SOP-05](../../references/sops.md#sop-05-proof-of-concept-safety-artifact-cleanup).
 
 ---
 

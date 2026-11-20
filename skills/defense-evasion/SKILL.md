@@ -13,7 +13,7 @@ d3fend_techniques: [D3-EDR, D3-PSA, D3-EAA, D3-SFA]
 
 Methodology for assessing endpoint visibility, evaluating EDR telemetry gaps, testing security control bypass resistance, and hardening environments against evasion tradecraft.
 
-> **SAFETY & HITL GOVERNANCE**: Active testing of process injection, telemetry modification, or security software evasion strictly requires explicit Human-in-the-Loop authorization per [SOP-04](../../references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate). All validation proofs must be non-destructive (e.g. benign API telemetry verification, clean process termination) per [SOP-05](../../references/sops.md#sop-05-proof-of-concept-safety--artifact-cleanup).
+> **SAFETY & HITL GOVERNANCE**: Active testing of process injection, telemetry modification, or security software evasion strictly requires explicit Human-in-the-Loop authorization per [SOP-04](../../references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate-tiered-autonomy). All validation proofs must be non-destructive (e.g. benign API telemetry verification, clean process termination) per [SOP-05](../../references/sops.md#sop-05-proof-of-concept-safety-artifact-cleanup).
 
 ---
 

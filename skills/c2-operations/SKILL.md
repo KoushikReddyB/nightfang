@@ -13,7 +13,7 @@ d3fend_techniques: [D3-NTF, D3-NTA, D3-DNSA, D3-PA]
 
 Methodology for assessing network perimeter detection capabilities, evaluating covert communication channel resilience, analyzing proxy egress controls, and measuring detection telemetry for adversary infrastructure.
 
-> **SAFETY & HITL GOVERNANCE**: Active deployment of network listener beacons, tunneling mechanisms, or simulated C2 traffic across production networks strictly requires explicit Human-in-the-Loop authorization per [SOP-04](../../references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate). Only benign canary traffic with verifiable non-destructive payloads may be transmitted per [SOP-05](../../references/sops.md#sop-05-proof-of-concept-safety--artifact-cleanup).
+> **SAFETY & HITL GOVERNANCE**: Active deployment of network listener beacons, tunneling mechanisms, or simulated C2 traffic across production networks strictly requires explicit Human-in-the-Loop authorization per [SOP-04](../../references/sops.md#sop-04-human-in-the-loop-hitl-exploitation-gate-tiered-autonomy). Only benign canary traffic with verifiable non-destructive payloads may be transmitted per [SOP-05](../../references/sops.md#sop-05-proof-of-concept-safety-artifact-cleanup).
 
 ---
 
