@@ -36,4 +36,11 @@ if ($latestBackup) {
     Write-Host "[OK] Restored original Hermes config.yaml" -ForegroundColor Green
 }
 
+$latestSoulBackup = Get-ChildItem -Path $HermesHome -Filter "SOUL.md.backup.*" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+if ($latestSoulBackup) {
+    Copy-Item $latestSoulBackup.FullName "$HermesHome\SOUL.md" -Force
+    Remove-Item $latestSoulBackup.FullName -Force
+    Write-Host "[OK] Restored original Hermes SOUL.md" -ForegroundColor Green
+}
+
 Write-Host "[OK] NIGHTFANG uninstalled from Hermes successfully." -ForegroundColor Green

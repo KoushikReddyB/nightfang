@@ -40,6 +40,26 @@ foreach ($c in $checks) {
     }
 }
 
+if (Test-Path "$HermesHome\config.yaml") {
+    try {
+        $null = & python -c "import yaml; yaml.safe_load(open(r'$HermesHome\config.yaml'))" 2>$null
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "  [OK] Hermes Config Syntax (Valid YAML)" -ForegroundColor Green
+        }
+    } catch {}
+}
+
+$launcher = Join-Path $HermesBinDir "nightfang.cmd"
+if (Test-Path $launcher) {
+    & $launcher --test 2>$null | Out-Null
+    if ($LASTEXITCODE -eq 0) {
+        Write-Host "  [OK] NIGHTFANG Self-Tests (Daemon & Gateway PASS)" -ForegroundColor Green
+    } else {
+        Write-Host "  [FAIL] NIGHTFANG Self-Tests failed" -ForegroundColor Red
+        $allPassed = $false
+    }
+}
+
 Write-Host ""
 if ($allPassed) {
     Write-Host "Overall Status: NIGHTFANG IS FULLY OPERATIONAL IN HERMES" -ForegroundColor Green

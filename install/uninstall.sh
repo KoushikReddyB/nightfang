@@ -17,11 +17,17 @@ rm -f "$HERMES_BIN_DIR/nightfang"
 rm -f "$HERMES_BIN_DIR/nightfang-gate"
 rm -f "$HOME/.local/bin/nightfang" 2>/dev/null || true
 
-# Restore original config if backup exists
-LATEST_BACKUP=$(ls -t "$HERMES_HOME"/config.yaml.backup.* 2>/dev/null | head -n 1 || true)
-if [[ -n "$LATEST_BACKUP" && -f "$LATEST_BACKUP" ]]; then
-    mv "$LATEST_BACKUP" "$HERMES_HOME/config.yaml"
+# Restore original config and SOUL.md if backup exists
+LATEST_CONFIG_BACKUP=$(ls -t "$HERMES_HOME"/config.yaml.backup.* 2>/dev/null | head -n 1 || true)
+if [[ -n "$LATEST_CONFIG_BACKUP" && -f "$LATEST_CONFIG_BACKUP" ]]; then
+    mv "$LATEST_CONFIG_BACKUP" "$HERMES_HOME/config.yaml"
     echo "[✓] Restored previous Hermes config.yaml"
+fi
+
+LATEST_SOUL_BACKUP=$(ls -t "$HERMES_HOME"/SOUL.md.backup.* 2>/dev/null | head -n 1 || true)
+if [[ -n "$LATEST_SOUL_BACKUP" && -f "$LATEST_SOUL_BACKUP" ]]; then
+    mv "$LATEST_SOUL_BACKUP" "$HERMES_HOME/SOUL.md"
+    echo "[✓] Restored previous Hermes SOUL.md"
 fi
 
 echo "[✓] NIGHTFANG successfully uninstalled from Hermes."
