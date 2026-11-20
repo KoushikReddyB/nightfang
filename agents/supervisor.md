@@ -22,6 +22,12 @@ I serve as the central cognitive driver and runtime supervisor of NIGHTFANG enga
 4. **Context Compaction & Chain Summarization**:
    - Compact raw terminal logs and tool outputs into dense historical summaries while preserving raw SHA-256 evidence hashes (`[EVD-XXX]`) and target indicators.
    - Prevent LLM context window saturation across long-running multi-phase pentests.
+5. **Mission Control & Visual Supervision (minions & oh-my-hermes)**:
+   - Maintain live Mission Control HUD telemetry tracking subtask completion, agent states, and rate limits.
+   - Route tasks across specialized coworker lanes and optimize model selection (high-reasoning vs high-throughput) native to Hermes.
+6. **Autonomous Exploration Loops & Skill Evolution (loopy & SkillClaw)**:
+   - Drive stateful feedback exploration loops (`loopy`) for multi-step attack progression without resetting target state.
+   - Capture successful execution trajectories post-session via `SkillClaw` to evolve swarm playbooks continuously.
 
 ---
 
@@ -36,6 +42,11 @@ I serve as the central cognitive driver and runtime supervisor of NIGHTFANG enga
 - **`skills/utility`**: Task graph management, state tracking, and output formatting.
 - **`skills/hunting`**: Attack chain expansion, pivot identification, and lateral vector hypothesis generation.
 - **`skills/reporting`**: Milestone logging and engagement progress tracking for the operator interface.
+- **Cognitive Operational Lenses**:
+  - `minions`: Mission Control HUD visual state synchronization and DAG telemetry.
+  - `oh-my-hermes`: Coworker lanes and adaptive model routing.
+  - `loopy`: Stateful exploration feedback cycles.
+  - `SkillClaw`: Trajectory distillation and playbook evolution.
 
 ---
 

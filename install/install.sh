@@ -8,7 +8,8 @@
 # - Configures the Execution Policy Gateway and Sandbox
 # - Installs the 'nightfang' launcher CLI
 # ============================================================
-set -euo pipefail
+set -eu
+set -o pipefail
 
 NIGHTFANG_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 HERMES_HOME="${HERMES_HOME:-$HOME/.hermes}"
@@ -19,6 +20,25 @@ HERMES_BIN_DIR="$HERMES_HOME/bin"
 SYSTEM_PROMPT_SRC="$NIGHTFANG_ROOT/adapters/hermes/system.md"
 CONFIG_SRC="$NIGHTFANG_ROOT/adapters/hermes/config.yaml"
 MEMORY_SRC="$NIGHTFANG_ROOT/adapters/hermes/memory"
+
+INSTALL_COMPLEMENTARY_SKILLS=true
+SKIP_CLONES=false
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --skip-skills)
+            INSTALL_COMPLEMENTARY_SKILLS=false
+            shift
+            ;;
+        --skip-clones)
+            SKIP_CLONES=true
+            shift
+            ;;
+        *)
+            shift
+            ;;
+    esac
+done
 
 # ------------------------------------------------------------
 # Terminal Formatting
@@ -100,6 +120,71 @@ if [[ -e "$NF_SKILL_LINK" || -L "$NF_SKILL_LINK" ]]; then
 fi
 ln -s "$NIGHTFANG_ROOT/skills" "$NF_SKILL_LINK"
 success "Linked 41 skills and 46 agents to $NF_SKILL_LINK"
+
+# 3b. Bootstrap Complementary Autonomous Skills (15-Skill Pack)
+if [ "$INSTALL_COMPLEMENTARY_SKILLS" = true ]; then
+    info "Integrating 15 complementary autonomous skills into Hermes..."
+    COMP_SKILLS_DIR="$HERMES_HOME/skills"
+    mkdir -p "$COMP_SKILLS_DIR"
+    mkdir -p "$HERMES_HOME/plugins"
+    mkdir -p "$HERMES_HOME/extensions"
+
+    PYTHON_BIN=""
+    if command -v python3 >/dev/null 2>&1 && python3 --version >/dev/null 2>&1; then
+        PYTHON_BIN="python3"
+    elif command -v python >/dev/null 2>&1 && python --version >/dev/null 2>&1; then
+        PYTHON_BIN="python"
+    fi
+
+    if [ -n "$PYTHON_BIN" ]; then
+        "$PYTHON_BIN" -m pip install --quiet yt-dlp agent-reach 2>/dev/null || true
+    fi
+
+    if command -v npm >/dev/null 2>&1; then
+        npm install -g defuddle 2>/dev/null || true
+    fi
+
+    SKILL_REPOS=(
+        "agent-reach|https://github.com/Panniantong/Agent-Reach.git|$COMP_SKILLS_DIR/agent-reach"
+        "humanizer|https://github.com/blader/humanizer.git|$COMP_SKILLS_DIR/humanizer"
+        "youtube-skills|https://github.com/ZeroPointRepo/youtube-skills.git|$COMP_SKILLS_DIR/youtube-skills"
+        "mattpocock-skills|https://github.com/mattpocock/skills.git|$COMP_SKILLS_DIR/mattpocock"
+        "addyosmani-agent-skills|https://github.com/addyosmani/agent-skills.git|$COMP_SKILLS_DIR/addyosmani"
+        "minions|https://github.com/agent37-platform/minions.git|$HERMES_HOME/extensions/minions"
+        "oh-my-hermes|https://github.com/rlaope/oh-my-hermes.git|$HERMES_HOME/plugins/oh-my-hermes"
+        "openmontage|https://github.com/OpenMontageInc/OpenMontage.git|$COMP_SKILLS_DIR/openmontage"
+        "browser-harness|https://github.com/browser-use/browser-harness.git|$COMP_SKILLS_DIR/browser-harness"
+        "defuddle|https://github.com/kepano/defuddle.git|$COMP_SKILLS_DIR/defuddle"
+        "loopy|https://github.com/Forward-Future/loopy.git|$COMP_SKILLS_DIR/loopy"
+        "make-interfaces|https://github.com/jakubkrehel/make-interfaces-feel-better.git|$COMP_SKILLS_DIR/make-interfaces"
+        "skillclaw|https://github.com/AMAP-ML/SkillClaw.git|$HERMES_HOME/plugins/skillclaw"
+    )
+
+    if [ "$SKIP_CLONES" = false ] && command -v git >/dev/null 2>&1; then
+        for entry in "${SKILL_REPOS[@]}"; do
+            IFS='|' read -r name repo target_dir <<< "$entry"
+            if [ ! -d "$target_dir/.git" ]; then
+                git clone --depth 1 "$repo" "$target_dir" >/dev/null 2>&1 || true
+            fi
+        done
+    fi
+
+    # Configure Hermes MCP for codebase-memory-mcp
+    MCP_CONFIG="$HERMES_HOME/mcp.json"
+    if [ ! -f "$MCP_CONFIG" ]; then
+        cat > "$MCP_CONFIG" << 'MCPEOF'
+{
+  "mcpServers": {
+    "codebase-memory": {
+      "command": "npx",
+      "args": ["-y", "codebase-memory-mcp"]
+    }
+  }
+}
+MCPEOF
+    fi
+    success "Complementary autonomous skills and MCP configured in Hermes."
+fi
 
 # 4. Install System Prompt & Configuration
 info "Infusing Hermes with NIGHTFANG persona & constitution..."

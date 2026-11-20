@@ -197,3 +197,64 @@ When active tools encounter infrastructure defense triggers, the engine adapts d
    - HTTP `403 Forbidden` / Cloudflare WAF challenge on a specific path triggers OPSEC noise downgrade (`LOUD` $\to$ `MODERATE` or `QUIET`), injects header variations (e.g. `X-Forwarded-For: 127.0.0.1`), and schedules variant route probing.
 2. **Socket Timeout & Connection Reset**:
    - 3 consecutive connection timeouts on a port triggers temporary port deactivation and marks the target service as latency-sensitive, reducing concurrency to 1.
+
+---
+
+## 13. Native Operational Skill Lenses & Autonomous Decision Procedures
+
+NIGHTFANG incorporates a 15-capability cognitive skill matrix categorized into 5 native operational modes. These are not merely secondary fallbacks; they are native operational lenses embedded into the swarm's cognitive execution loop:
+
+### Lens 1: Frontline Sensory & Web Perception
+1. **Agent-Reach (Zero-Fee Multi-Platform OSINT)**:
+   - *Trigger*: Passive reconnaissance, threat actor attribution, developer leak discovery, or recent CVE exploit chatter.
+   - *Autonomous Action*: Execute zero-fee queries across X, Reddit, GitHub, and YouTube transcripts before querying paid threat intelligence APIs. Cross-reference uncovered developer usernames with commit logs.
+2. **defuddle (Token-Efficient DOM Extractor)**:
+   - *Trigger*: Target web endpoints return HTML responses $> 4\text{ KB}$ during crawling, scraping, or documentation inspection.
+   - *Autonomous Action*: Pipe raw HTML through `defuddle` to extract clean, semantic Markdown. Strips boilerplate scripts, style tags, and navigation headers, reducing LLM context window consumption by up to 80%.
+3. **youtube-skills (Video Intel & Transcript Mining)**:
+   - *Trigger*: Recon uncovers conference talks, engineering demos, or recorded webinars related to target organization systems.
+   - *Autonomous Action*: Ingest video transcripts, index chapters, and query spoken technical terms for architectural disclosures, internal hostnames, or unreleased API endpoints.
+4. **browser-harness (Live Authenticated Browser Automation)**:
+   - *Trigger*: Modern Single-Page Applications (React, Vue, Angular) requiring complex DOM hydration, canvas interactions, or multi-step SSO/MFA flows where headless HTTP tools (`curl`, `ffuf`) fail to parse state.
+   - *Autonomous Action*: Spawn live instrumented Chrome session via `browser-harness` to interact with dynamic JavaScript components, capture DOM mutations, and evaluate client-side token storage.
+
+### Lens 2: Engineering Rigor & Codebase Knowledge
+1. **addyosmani agent-skills (Production Engineering Lifecycle)**:
+   - *Trigger*: Initiating new security assessments, developing custom exploits, or crafting hardening guidance.
+   - *Autonomous Action*: Enforce structured lifecycle progression: `/spec` (scope & threat boundaries) $\to$ `/plan` (subtask DAG) $\to$ `/build` (probe implementation) $\to$ `/test` (canary verification) $\to$ `/review` (7-question adversarial gate) $\to$ `/ship` (report generation).
+2. **mattpocock skills (Verification & Engineering Discipline)**:
+   - *Trigger*: Custom exploit PoC authoring, validation script synthesis, or defensive patch verification.
+   - *Autonomous Action*: Enforce `/grill-with-docs` (verify against target protocol RFCs), `/tdd` (write automated canary assertions before exploit execution), and `/implement` (clean, non-destructive execution).
+3. **codebase-memory-mcp (Persistent AST Semantic Knowledge Graph)**:
+   - *Trigger*: Static Application Security Testing (SAST), white-box source code audits, or complex git diff reviews.
+   - *Autonomous Action*: Build and query a persistent Abstract Syntax Tree (AST) graph of the target codebase. Trace cross-file data flows from untrusted inputs (`sources`) to sensitive sinks (`sinks`), replacing fragile flat regex scanning.
+
+### Lens 3: Orchestration, Supervision & System Evolution
+1. **minions (Mission Control Visual HUD & Supervision)**:
+   - *Trigger*: Active multi-agent pentest engagements requiring continuous operational oversight.
+   - *Autonomous Action*: Maintain real-time HUD telemetry: stream active agent states, DAG task completion, rate limits, and pending HITL approval items to the operator's mission control dashboard.
+2. **oh-my-hermes (Multi-Agent Coworker Lanes & Model Routing)**:
+   - *Trigger*: Parallel subtask execution requiring specialized model characteristics.
+   - *Autonomous Action*: Route analytical reasoning tasks (taint analysis, exploit math) to high-reasoning models; route high-throughput tasks (log filtering, regex matching) to low-latency models across isolated coworker lanes.
+3. **loopy (Stateful Exploration & Feedback Loops)**:
+   - *Trigger*: Multi-step stateful business logic testing (e.g. e-commerce checkout, privilege grant flows, state machine bypasses).
+   - *Autonomous Action*: Execute recursive exploration loops with stateful feedback memory, adjusting payload permutations dynamically based on previous step HTTP response changes without resetting session cookies.
+4. **SkillClaw (Continuous Post-Session Skill Evolution)**:
+   - *Trigger*: Successful vulnerability validation, unexpected WAF bypass, or novel defense circumvention.
+   - *Autonomous Action*: Analyze the successful execution trajectory, extract reusable procedural heuristics, and persist evolved sub-playbooks for future swarm engagements.
+
+### Lens 4: Presentation Craft & Workspace Integration
+1. **humanizer (De-AI Tone & Authenticity Filter)**:
+   - *Trigger*: Compiling executive summaries, technical walkthroughs, or operator chat notifications.
+   - *Autonomous Action*: Strip robotic markers, passive voice, sycophancy, and boilerplate corporate buzzwords. Ensure communication is terse, objective, authoritative, and direct.
+2. **make-interfaces-feel-better (Visual Ergonomics & Optical Alignment)**:
+   - *Trigger*: Markdown table generation, terminal dashboard output, and finding card formatting.
+   - *Autonomous Action*: Align columns optically, apply clean typographic hierarchy, and format status indicators (`[+]`, `[-]`, `[!]`) for frictionless operator scanning.
+3. **OpenMontage (Agentic Video PoC Studio)**:
+   - *Trigger*: Critical or High vulnerability demonstrations requiring visual executive deliverable.
+   - *Autonomous Action*: Synthesize a concise, visual PoC video artifact combining screen capture timelines, attack graph transitions, and technical callouts.
+
+### Lens 5: Specialized Security & Hardware Playbooks
+1. **Anthropic Cybersecurity Skills Catalog (Niche & Exotic Playbooks)**:
+   - *Trigger*: Encountering low-level hardware, firmware, TPM 2.0, post-quantum crypto, or critical infrastructure systems.
+   - *Autonomous Action*: Dynamically reference [`references/playbook_catalog.md`](playbook_catalog.md) to retrieve specialized execution commands and verification methodologies.

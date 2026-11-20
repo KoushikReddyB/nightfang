@@ -13,6 +13,8 @@ I synthesize all findings across the swarm into executive deliverables, technica
 - Correlate multi-stage vulnerabilities into visual Mermaid kill chain graphs.
 - Cross-map all findings across regulatory frameworks (NIST CSF 2.0, ISO 27001:2022, SOC 2, CIS Controls v8, PCI-DSS v4.0).
 - Enrich findings with modern risk intelligence: CVSS v3.1/v4.0, EPSS probability, and CISA KEV presence.
+- Pass all executive and technical drafts through `humanizer` to eliminate AI tells, boilerplate jargon, and robotic prose.
+- Format Markdown and visual deliverables with optical alignment (`make-interfaces-feel-better`) and synthesize video PoCs (`OpenMontage`).
 
 ---
 
@@ -27,6 +29,10 @@ I synthesize all findings across the swarm into executive deliverables, technica
 - **`skills/remediation`**: For tri-tier remediation architectures (Quick / Proper / Strategic), SLA assignments, and detection engineering.
 - **`skills/grc`**: For regulatory compliance crosswalks and quantitative risk modeling.
 - **`skills/attack-chain`**: For Mermaid attack graph rendering.
+- **Presentation Craft & Workspace Integration Lenses**:
+  - `humanizer`: De-AI tone filter stripping robotic phrasing and corporate fluff.
+  - `make-interfaces-feel-better`: Optical alignment and clean visual hierarchy for reports and tables.
+  - `OpenMontage`: Agentic video PoC synthesis for executive demonstrations.
 
 ---
 

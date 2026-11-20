@@ -315,6 +315,25 @@ capabilities:
       - skills/post-exploitation
       - skills/defense-evasion
 
+  - id: extended-osint-reach
+    description: "Zero-fee multi-platform intelligence gathering across X, Reddit, YouTube transcripts, and GitHub with token-efficient Markdown extraction"
+    target_types: [social_profile, x_account, reddit_thread, youtube_channel, code_repo, developer_handle]
+    workflow: workflows/standard-pentest.md
+    agent: agents/recon.md
+    skills:
+      - skills/recon
+      - skills/utility
+
+  - id: repo-graph-memory
+    description: "Persistent AST semantic knowledge graph analysis, cross-file taint tracking, and caller-callee hierarchy auditing"
+    target_types: [source_code, git_repo, ast_graph, code_workspace, repo_graph_memory]
+    workflow: workflows/supply-chain-assessment.md
+    agent: agents/code-auditor.md
+    skills:
+      - skills/web
+      - skills/api
+      - skills/crypto
+
 
 agents:
   - agents/supervisor.md
@@ -366,14 +385,14 @@ agents:
 
 agent_taxonomy:
   direct:
-    description: "Reachable directly through manifest capabilities[] routing table (28 agents covering 33 capabilities)"
+    description: "Reachable directly through manifest capabilities[] routing table (28 agents covering 34 direct capabilities; 35 total with repo-graph-memory)"
     agents:
       - id: supervisor
         path: agents/supervisor.md
         capabilities: [autonomous-supervision]
       - id: recon
         path: agents/recon.md
-        capabilities: [attack-surface-mapping, initial-access-assessment]
+        capabilities: [attack-surface-mapping, initial-access-assessment, extended-osint-reach]
       - id: scanner
         path: agents/scanner.md
         capabilities: [web-application-security, api-security, network-infrastructure-security]
@@ -465,6 +484,7 @@ agent_taxonomy:
         purpose: "Pre-attack architectural trust boundary and data flow decomposition (STRIDE/PASTA)"
       - id: code-auditor
         path: agents/code-auditor.md
+        capabilities: [repo-graph-memory]
         invoked_by: [workflows/supply-chain-assessment.md, workflows/cicd-assessment.md, workflows/web-assessment.md]
         purpose: "Static source code analysis (SAST) and sink-to-source taint tracking"
       - id: risk-scorer
@@ -605,6 +625,7 @@ references:
   - references/heuristics.md
   - references/tools.md
   - references/framework_mappings.md
+  - references/playbook_catalog.md
 
 integration:
   - integration/hermes.md
