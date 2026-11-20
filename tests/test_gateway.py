@@ -8,12 +8,10 @@ if ROOT not in sys.path:
 from tools.gateway import (
     ActionType,
     AutonomyTier,
-    EngagementState,
-    ExecutionPolicyGateway,
-    ActionType,
     DispositionStatus,
     EngagementConfig,
     EngagementState,
+    ExecutionPolicyGateway,
     HitlApprovalToken,
     NoiseProfile,
     OpsecSpec,

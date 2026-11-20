@@ -114,6 +114,6 @@ if __name__ == "__main__":
     # Quick smoke test
     r = AgentPayloadResolver()
     print("Classes:", len(r.list_classes()))
-    print("CWE-89:", r.get_by_cwe("CWE-89"))
+    print("CWE-943 (injection-related):", r.get_by_cwe("CWE-943"))
     print("A03:2021:", r.get_by_owasp("A03:2021"))
-    print("SQL Injection:", r.get_by_class("SQL Injection"))
+    print("JWT Manipulation:", r.get_by_class("JWT Manipulation"))

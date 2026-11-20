@@ -1,16 +1,4 @@
 {
-  ".git": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": []
-  },
-  ".github": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": []
-  },
   "BLE Enumeration": {
     "cwe": "N/A",
     "owasp": "N/A",
@@ -169,8 +157,8 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "AMSI Bypass/amsi_bypass_probe.py",
-      "AMSI Bypass/SAFE_DEFAULT.md"
+      "amsi_bypass_probe.py",
+      "SAFE_DEFAULT.md"
     ]
   },
   "cron-audit-probe": {
@@ -178,8 +166,8 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "Cron Audit Probe/cron_audit_probe_probe.py",
-      "Cron Audit Probe/SAFE_DEFAULT.md"
+      "cron_audit_probe.py",
+      "SAFE_DEFAULT.md"
     ]
   },
   "exposed-service-probe": {
@@ -187,8 +175,8 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "Exposed Service Probe/exposed_service_probe_probe.py",
-      "Exposed Service Probe/SAFE_DEFAULT.md"
+      "exposed_service_probe.py",
+      "SAFE_DEFAULT.md"
     ]
   },
   "imds-ssrf-probe": {
@@ -196,8 +184,8 @@
     "owasp": "A10:2021",
     "safe_default": true,
     "payload_files": [
-      "IMDS SSRF Probe/imds_ssrf_probe_probe.py",
-      "IMDS SSRF Probe/SAFE_DEFAULT.md"
+      "imds_ssrf_probe.py",
+      "SAFE_DEFAULT.md"
     ]
   },
   "outbound-egress-probe": {
@@ -205,8 +193,8 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "Outbound Egress Probe/outbound_egress_probe_probe.py",
-      "Outbound Egress Probe/SAFE_DEFAULT.md"
+      "outbound_egress_probe.py",
+      "SAFE_DEFAULT.md"
     ]
   },
   "reverse-shell-probe": {
@@ -214,8 +202,8 @@
     "owasp": "A03:2021",
     "safe_default": true,
     "payload_files": [
-      "Reverse Shell Probe/reverse_shell_probe_probe.py",
-      "Reverse Shell Probe/SAFE_DEFAULT.md"
+      "reverse_shell_probe.py",
+      "SAFE_DEFAULT.md"
     ]
   },
   "smb-null-session-probe": {
@@ -223,8 +211,8 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "SMB Null Session Probe/SAFE_DEFAULT.md",
-      "SMB Null Session Probe/smb_null_session_probe_probe.py"
+      "SAFE_DEFAULT.md",
+      "smb_null_session_probe.py"
     ]
   },
   "sudoers-audit-probe": {
@@ -232,8 +220,8 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "Sudoers Audit Probe/SAFE_DEFAULT.md",
-      "Sudoers Audit Probe/sudoers_audit_probe_probe.py"
+      "SAFE_DEFAULT.md",
+      "sudoers_audit_probe.py"
     ]
   },
   "suid-binary-audit": {
