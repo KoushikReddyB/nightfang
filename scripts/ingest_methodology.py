@@ -6,8 +6,17 @@ single per-domain markdown file that nightfang agents can load as procedural kno
 """
 import os
 
-PE = "D:/Playground4Hermes/refs/PentestingEverything"
-OUT = "D:/Playground4Hermes/nightfang/references/methodology"
+PE = os.environ.get(
+    "NIGHTFANG_PENTESTING_EVERYTHING",
+    os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "..", "refs", "PentestingEverything"
+    )
+)
+OUT = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "references", "methodology"
+)
 
 DOMAIN_MAP = {
     "Web Application Pentesting": "web",

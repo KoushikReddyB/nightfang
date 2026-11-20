@@ -11,8 +11,17 @@ vuln_class -> {
 """
 import os, json
 
-PAYLOADS = "D:/Playground4Hermes/refs/payloadsallthethings"
-OUT = "D:/Playground4Hermes/nightfang/references/payloads"
+PAYLOADS = os.environ.get(
+    "NIGHTFANG_PAYLOADS_REF",
+    os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "..", "refs", "payloadsallthethings"
+    )
+)
+OUT = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "references", "payloads"
+)
 
 # Mapping to help agents map payloads to standards
 # This is a baseline; agents should refine this via CTI/GRC workflows.

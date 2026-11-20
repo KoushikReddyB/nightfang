@@ -17,7 +17,14 @@ import sys
 INDEX_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "..", "references", "payloads", "index.json"
 )
-REF_PATH = "D:/Playground4Hermes/refs/payloadsallthethings"
+# Reference payload repo path (relative to repository root; override via env)
+REF_PATH = os.environ.get(
+    "NIGHTFANG_PAYLOADS_REF",
+    os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "..", "refs", "payloadsallthethings"
+    )
+)
 
 
 def load_index():
