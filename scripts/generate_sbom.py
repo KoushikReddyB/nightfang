@@ -468,10 +468,12 @@ def main() -> int:
 
 
 def _write_output(content: Any, output_base: str, suffix: str) -> None:
-    if os.path.isdir(output_base):
-        dest = os.path.join(output_base, f"sbom{suffix}")
+    # Strip existing .json extension to avoid double suffix like .json.json
+    base = output_base.rsplit(".json")[0] if output_base.endswith(".json") else output_base
+    if os.path.isdir(base):
+        dest = os.path.join(base, f"sbom{suffix}")
     else:
-        dest = output_base + suffix if suffix else output_base
+        dest = base + suffix if suffix else base
     os.makedirs(os.path.dirname(os.path.abspath(dest)), exist_ok=True)
     with open(dest, "w", encoding="utf-8") as f:
         if isinstance(content, dict):

@@ -10,6 +10,7 @@ of schema violation or edge case.
 import json
 import os
 import sys
+import unittest
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
@@ -112,5 +113,14 @@ def main() -> None:
         sys.exit(0)
 
 
+class CorpusTestSuite(unittest.TestCase):
+    """Unittest-compatible wrapper around run_corpus_tests()."""
+
+    def test_all_corpus_files_rejected(self) -> None:
+        passed, total, errors = run_corpus_tests()
+        self.assertEqual(total, 12, f"Expected 12 corpus files, got {total}")
+        self.assertEqual(passed, total, f"{len(errors)} failures: {errors}")
+
+
 if __name__ == "__main__":
-    main()
+    unittest.main(module=None)

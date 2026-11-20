@@ -33,7 +33,7 @@ class AttackerTechnique:
     """Single ATT&CK technique definition."""
     tactic: str
     technique_id: str
-    name: string
+    name: str
     description: str
     detection_difficulty: int    # 1=easy detect, 10=hard detect
     mitigation_ease: int         # 1=hard to mitigate, 10=easy

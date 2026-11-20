@@ -2,7 +2,7 @@
 
 NIGHTFANG is a modular, autonomous security capability pack that transforms the **Hermes** host runtime into an advanced, continuous penetration testing and vulnerability hunting engine.
 
-When installed into Hermes, NIGHTFANG infuses Hermes with its security persona, **46 specialized agents**, 33 registered capabilities, 17 workflows, **41 skills**, the 6-stage Execution Policy Gateway, and the background Autonomous Hunter Daemon. Whether interacting via **Telegram, Discord, Web UI, or CLI**, the operator communicates directly with NIGHTFANG.
+When installed into Hermes, NIGHTFANG infuses Hermes with its security persona, **46 specialized agents**, 33 registered capabilities, 17 workflows, **42 skills**, the 6-stage Execution Policy Gateway, and the background Autonomous Hunter Daemon. Whether interacting via **Telegram, Discord, Web UI, or CLI**, the operator communicates directly with NIGHTFANG.
 
 ---
 
@@ -23,7 +23,7 @@ When installed into Hermes, NIGHTFANG infuses Hermes with its security persona, 
 │                       Security Orchestration Layer                     │
 ├───────────────────┬───────────────────┬────────────────────────────────┤
 │      Agents       │      Skills       │           Workflows            │
-│    (46 Agents)    │    (41 Skills)    │         (17 Workflows)         │
+│    (46 Agents)    │    (42 Skills)    │         (17 Workflows)         │
 ├───────────────────┴───────────────────┴────────────────────────────────┤
 │                   Autonomous Hunter Engine Daemon                      │
 │            PriorityDAG Task Queue • Recursive Lead Expansion           │
@@ -183,7 +183,7 @@ Invoked downstream by workflows or primary agents for specialized lifecycle sub-
 
 ---
 
-## 37 Security Skills
+## 42 Security Skills
 
 Located in `skills/`, loaded on-demand:
 `recon`, `web`, `api`, `network`, `cloud`, `container`, `cicd`, `active-directory`, `wireless`, `mobile`, `iot`, `ot-ics`, `crypto`, `forensics`, `supply-chain`, `grc`, `cti`, `purple-team`, `privilege-escalation`, `post-exploitation`, `ai-security`, `hunting`, `attack-chain`, `remediation`, `reporting`, `utility`, `defense-evasion`, `c2-operations`, `initial-access`, `credential-access`, `reverse-engineering`.

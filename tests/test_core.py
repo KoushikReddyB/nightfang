@@ -418,7 +418,7 @@ class TestSandbox(unittest.TestCase):
 
     def test_timeout_enforcement(self):
         t_start = time.time()
-        sleep_cmd = "ping -n 3 127.0.0.1 >nul" if os.name == "nt" else "sleep 3"
+        sleep_cmd = "ping -n 5 127.0.0.1" if os.name == "nt" else "sleep 3"
         res = self.sandbox.run(sleep_cmd, timeout=1)
         duration = time.time() - t_start
         self.assertEqual(res["status"], "TIMEOUT")

@@ -182,34 +182,34 @@ class TestPayloadResolverIntegration(unittest.TestCase):
             self.assertIn("payload_count", c)
 
     def test_resolver_by_class(self):
-        sqli = self.resolver.get_by_class("SQL Injection")
+        sqli = self.resolver.get_by_class("JWT Manipulation")
         self.assertIsNotNone(sqli)
-        self.assertEqual(sqli["cwe"], "CWE-89")
-        self.assertEqual(sqli["owasp"], "A03:2021")
-        self.assertFalse(sqli["safe_default"])
+        self.assertEqual(sqli["cwe"], "CWE-327")
+        self.assertEqual(sqli["owasp"], "A02:2021")
+        self.assertTrue(sqli["safe_default"])
         self.assertGreater(len(sqli["payload_files"]), 0)
 
     def test_resolver_by_cwe(self):
-        matches = self.resolver.get_by_cwe("CWE-89")
-        self.assertGreaterEqual(len(matches), 2)  # SQLi + NoSQL Injection
+        matches = self.resolver.get_by_cwe("CWE-943")
+        self.assertGreaterEqual(len(matches), 2)  # CoAP Injection + LMQ Fuzzing + MQTT Injection
         classes = [m["class"] for m in matches]
-        self.assertIn("SQL Injection", classes)
-        self.assertIn("NoSQL Injection", classes)
+        self.assertIn("CoAP Injection", classes)
+        self.assertIn("MQTT Injection", classes)
 
     def test_resolver_by_owasp(self):
-        matches = self.resolver.get_by_owasp("A03:2021")
-        self.assertGreaterEqual(len(matches), 2)  # SQLi + SSTI at minimum
+        matches = self.resolver.get_by_owasp("A02:2021")
+        self.assertGreaterEqual(len(matches), 2)  # JWT Manipulation + BOLA at minimum
 
     def test_safe_vs_destructive_split(self):
-        safe = self.resolver.get_safe_payloads("Directory Traversal")
-        dest = self.resolver.get_destructive_payloads("Directory Traversal")
+        safe = self.resolver.get_safe_payloads("JWT Manipulation")
+        dest = self.resolver.get_destructive_payloads("JWT Manipulation")
         self.assertGreater(len(safe), 0)
         self.assertEqual(len(dest), 0)
 
-        safe2 = self.resolver.get_safe_payloads("SQL Injection")
-        dest2 = self.resolver.get_destructive_payloads("SQL Injection")
-        self.assertEqual(len(safe2), 0)
-        self.assertGreater(len(dest2), 0)
+        safe2 = self.resolver.get_safe_payloads("BOLA")
+        dest2 = self.resolver.get_destructive_payloads("BOLA")
+        self.assertGreater(len(safe2), 0)
+        self.assertEqual(len(dest2), 0)
 
 
 class TestFindingValidationPipeline(unittest.TestCase):

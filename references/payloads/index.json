@@ -11,702 +11,13 @@
     "safe_default": false,
     "payload_files": []
   },
-  "API Key Leaks": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "API Key Leaks\\IIS-Machine-Keys.md",
-      "API Key Leaks\\README.md",
-      "API Key Leaks\\Files\\MachineKeys.txt"
-    ]
-  },
-  "Account Takeover": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Account Takeover\\mfa-bypass.md",
-      "Account Takeover\\README.md"
-    ]
-  },
-  "Brute Force Rate Limit": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Brute Force Rate Limit\\README.md"
-    ]
-  },
-  "Business Logic Errors": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Business Logic Errors\\README.md"
-    ]
-  },
-  "CORS Misconfiguration": {
-    "cwe": "N/A",
-    "owasp": "A05:2021",
-    "safe_default": true,
-    "payload_files": [
-      "CORS Misconfiguration\\README.md"
-    ]
-  },
-  "CRLF Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "CRLF Injection\\README.md",
-      "CRLF Injection\\Files\\crlfinjection.txt"
-    ]
-  },
-  "CSS Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "CSS Injection\\README.md"
-    ]
-  },
-  "CSV Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "CSV Injection\\README.md"
-    ]
-  },
-  "CVE Exploits": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "CVE Exploits\\Log4Shell.md",
-      "CVE Exploits\\README.md"
-    ]
-  },
-  "Clickjacking": {
-    "cwe": "N/A",
-    "owasp": "A07:2021",
-    "safe_default": true,
-    "payload_files": [
-      "Clickjacking\\README.md"
-    ]
-  },
-  "Client Side Path Traversal": {
-    "cwe": "CWE-22",
-    "owasp": "A01:2021",
-    "safe_default": true,
-    "payload_files": [
-      "Client Side Path Traversal\\README.md"
-    ]
-  },
-  "Command Injection": {
-    "cwe": "CWE-77",
-    "owasp": "A03:2021",
-    "safe_default": true,
-    "payload_files": [
-      "Command Injection\\README.md",
-      "Command Injection\\Intruder\\command-execution-unix.txt",
-      "Command Injection\\Intruder\\command_exec.txt"
-    ]
-  },
-  "Cross-Site Request Forgery": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Cross-Site Request Forgery\\README.md"
-    ]
-  },
-  "DNS Rebinding": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": [
-      "DNS Rebinding\\README.md"
-    ]
-  },
-  "DOM Clobbering": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "DOM Clobbering\\README.md"
-    ]
-  },
-  "Denial of Service": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Denial of Service\\README.md"
-    ]
-  },
-  "Dependency Confusion": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Dependency Confusion\\README.md"
-    ]
-  },
-  "Directory Traversal": {
-    "cwe": "CWE-22",
-    "owasp": "A01:2021",
-    "safe_default": true,
-    "payload_files": [
-      "Directory Traversal\\README.md",
-      "Directory Traversal\\Intruder\\deep_traversal.txt",
-      "Directory Traversal\\Intruder\\directory_traversal.txt",
-      "Directory Traversal\\Intruder\\dotdotpwn.txt",
-      "Directory Traversal\\Intruder\\traversals-8-deep-exotic-encoding.txt"
-    ]
-  },
-  "Encoding Transformations": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Encoding Transformations\\README.md"
-    ]
-  },
-  "External Variable Modification": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "External Variable Modification\\README.md"
-    ]
-  },
-  "File Inclusion": {
-    "cwe": "CWE-22",
-    "owasp": "A01:2021",
-    "safe_default": false,
-    "payload_files": [
-      "File Inclusion\\LFI-to-RCE.md",
-      "File Inclusion\\README.md",
-      "File Inclusion\\Wrappers.md",
-      "File Inclusion\\Files\\LFI2RCE.py",
-      "File Inclusion\\Files\\phpinfolfi.py",
-      "File Inclusion\\Files\\uploadlfi.py",
-      "File Inclusion\\Intruders\\BSD-files.txt",
-      "File Inclusion\\Intruders\\dot-slash-PathTraversal_and_LFI_pairing.txt",
-      "File Inclusion\\Intruders\\JHADDIX_LFI.txt",
-      "File Inclusion\\Intruders\\LFI-FD-check.txt",
-      "File Inclusion\\Intruders\\LFI-WindowsFileCheck.txt",
-      "File Inclusion\\Intruders\\Linux-files.txt",
-      "File Inclusion\\Intruders\\List_Of_File_To_Include.txt",
-      "File Inclusion\\Intruders\\List_Of_File_To_Include_NullByteAdded.txt",
-      "File Inclusion\\Intruders\\Mac-files.txt",
-      "File Inclusion\\Intruders\\php-filter-iconv.txt",
-      "File Inclusion\\Intruders\\simple-check.txt",
-      "File Inclusion\\Intruders\\Traversal.txt",
-      "File Inclusion\\Intruders\\Web-files.txt",
-      "File Inclusion\\Intruders\\Windows-files.txt"
-    ]
-  },
-  "Google Web Toolkit": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Google Web Toolkit\\README.md"
-    ]
-  },
-  "GraphQL Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "GraphQL Injection\\README.md"
-    ]
-  },
-  "HTTP Parameter Pollution": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "HTTP Parameter Pollution\\README.md"
-    ]
-  },
-  "Headless Browser": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Headless Browser\\README.md"
-    ]
-  },
-  "Hidden Parameters": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Hidden Parameters\\README.md"
-    ]
-  },
-  "Insecure Deserialization": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Insecure Deserialization\\DotNET.md",
-      "Insecure Deserialization\\Java.md",
-      "Insecure Deserialization\\Node.md",
-      "Insecure Deserialization\\PHP.md",
-      "Insecure Deserialization\\Python.md",
-      "Insecure Deserialization\\README.md",
-      "Insecure Deserialization\\Ruby.md",
-      "Insecure Deserialization\\Files\\node-serialize.js"
-    ]
-  },
-  "Insecure Direct Object References": {
-    "cwe": "CWE-639",
-    "owasp": "A01:2021",
-    "safe_default": true,
-    "payload_files": [
-      "Insecure Direct Object References\\README.md"
-    ]
-  },
-  "Insecure Management Interface": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Insecure Management Interface\\README.md",
-      "Insecure Management Interface\\Intruder\\springboot_actuator.txt"
-    ]
-  },
-  "Insecure Randomness": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Insecure Randomness\\README.md"
-    ]
-  },
-  "Insecure Source Code Management": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Insecure Source Code Management\\Bazaar.md",
-      "Insecure Source Code Management\\Git.md",
-      "Insecure Source Code Management\\Mercurial.md",
-      "Insecure Source Code Management\\README.md",
-      "Insecure Source Code Management\\Subversion.md",
-      "Insecure Source Code Management\\Files\\github-dorks.txt"
-    ]
-  },
-  "JSON Web Token": {
-    "cwe": "CWE-327",
-    "owasp": "A02:2021",
-    "safe_default": true,
-    "payload_files": [
-      "JSON Web Token\\README.md"
-    ]
-  },
-  "Java RMI": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Java RMI\\README.md"
-    ]
-  },
-  "LDAP Injection": {
-    "cwe": "CWE-90",
-    "owasp": "A03:2021",
-    "safe_default": true,
-    "payload_files": [
-      "LDAP Injection\\README.md",
-      "LDAP Injection\\Intruder\\LDAP_attributes.txt",
-      "LDAP Injection\\Intruder\\LDAP_FUZZ.txt",
-      "LDAP Injection\\Intruder\\LDAP_FUZZ_SMALL.txt"
-    ]
-  },
-  "LaTeX Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "LaTeX Injection\\README.md"
-    ]
-  },
-  "Mass Assignment": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Mass Assignment\\README.md"
-    ]
-  },
-  "Methodology and Resources": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Methodology and Resources\\Active Directory Attack.md",
-      "Methodology and Resources\\Bind Shell Cheatsheet.md",
-      "Methodology and Resources\\Cloud - AWS Pentest.md",
-      "Methodology and Resources\\Cloud - Azure Pentest.md",
-      "Methodology and Resources\\Cobalt Strike - Cheatsheet.md",
-      "Methodology and Resources\\Container - Docker Pentest.md",
-      "Methodology and Resources\\Container - Kubernetes Pentest.md",
-      "Methodology and Resources\\Escape Breakout.md",
-      "Methodology and Resources\\Hash Cracking.md",
-      "Methodology and Resources\\HTML Smuggling.md",
-      "Methodology and Resources\\Initial Access.md",
-      "Methodology and Resources\\Linux - Evasion.md",
-      "Methodology and Resources\\Linux - Persistence.md",
-      "Methodology and Resources\\Linux - Privilege Escalation.md",
-      "Methodology and Resources\\Metasploit - Cheatsheet.md",
-      "Methodology and Resources\\Methodology and enumeration.md",
-      "Methodology and Resources\\MSSQL Server - Cheatsheet.md",
-      "Methodology and Resources\\Network Discovery.md",
-      "Methodology and Resources\\Network Pivoting Techniques.md",
-      "Methodology and Resources\\Office - Attacks.md",
-      "Methodology and Resources\\Powershell - Cheatsheet.md",
-      "Methodology and Resources\\Reverse Shell Cheatsheet.md",
-      "Methodology and Resources\\Source Code Management.md",
-      "Methodology and Resources\\Vulnerability Reports.md",
-      "Methodology and Resources\\Web Attack Surface.md",
-      "Methodology and Resources\\Windows - AMSI Bypass.md",
-      "Methodology and Resources\\Windows - Defenses.md",
-      "Methodology and Resources\\Windows - Download and Execute.md",
-      "Methodology and Resources\\Windows - DPAPI.md",
-      "Methodology and Resources\\Windows - Mimikatz.md",
-      "Methodology and Resources\\Windows - Persistence.md",
-      "Methodology and Resources\\Windows - Privilege Escalation.md",
-      "Methodology and Resources\\Windows - Using credentials.md"
-    ]
-  },
-  "NoSQL Injection": {
-    "cwe": "CWE-89",
-    "owasp": "A03:2021",
-    "safe_default": true,
-    "payload_files": [
-      "NoSQL Injection\\README.md",
-      "NoSQL Injection\\Intruder\\MongoDB.txt",
-      "NoSQL Injection\\Intruder\\NoSQL.txt"
-    ]
-  },
-  "OAuth Misconfiguration": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "OAuth Misconfiguration\\README.md"
-    ]
-  },
-  "ORM Leak": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "ORM Leak\\README.md"
-    ]
-  },
-  "Open Redirect": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Open Redirect\\README.md",
-      "Open Redirect\\Intruder\\Open-Redirect-payloads.txt",
-      "Open Redirect\\Intruder\\openredirects.txt",
-      "Open Redirect\\Intruder\\open_redirect_wordlist.txt"
-    ]
-  },
-  "Prompt Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Prompt Injection\\README.md"
-    ]
-  },
-  "Prototype Pollution": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Prototype Pollution\\README.md"
-    ]
-  },
-  "Race Condition": {
-    "cwe": "CWE-362",
-    "owasp": "A01:2021",
-    "safe_default": true,
-    "payload_files": [
-      "Race Condition\\README.md"
-    ]
-  },
-  "Regular Expression": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Regular Expression\\README.md"
-    ]
-  },
-  "Request Smuggling": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Request Smuggling\\README.md"
-    ]
-  },
-  "Reverse Proxy Misconfigurations": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Reverse Proxy Misconfigurations\\README.md"
-    ]
-  },
-  "SAML Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "SAML Injection\\README.md"
-    ]
-  },
-  "SQL Injection": {
-    "cwe": "CWE-89",
-    "owasp": "A03:2021",
-    "safe_default": false,
-    "payload_files": [
-      "SQL Injection\\BigQuery Injection.md",
-      "SQL Injection\\Cassandra Injection.md",
-      "SQL Injection\\DB2 Injection.md",
-      "SQL Injection\\MSSQL Injection.md",
-      "SQL Injection\\MySQL Injection.md",
-      "SQL Injection\\OracleSQL Injection.md",
-      "SQL Injection\\PostgreSQL Injection.md",
-      "SQL Injection\\README.md",
-      "SQL Injection\\SQLite Injection.md",
-      "SQL Injection\\SQLmap.md",
-      "SQL Injection\\Intruder\\Auth_Bypass.txt",
-      "SQL Injection\\Intruder\\Auth_Bypass2.txt",
-      "SQL Injection\\Intruder\\FUZZDB_MSSQL-WHERE_Time.txt",
-      "SQL Injection\\Intruder\\FUZZDB_MSSQL.txt",
-      "SQL Injection\\Intruder\\FUZZDB_MSSQL_Enumeration.txt",
-      "SQL Injection\\Intruder\\FUZZDB_MySQL-WHERE_Time.txt",
-      "SQL Injection\\Intruder\\FUZZDB_MYSQL.txt",
-      "SQL Injection\\Intruder\\FUZZDB_MySQL_ReadLocalFiles.txt",
-      "SQL Injection\\Intruder\\FUZZDB_Oracle.txt",
-      "SQL Injection\\Intruder\\FUZZDB_Postgres_Enumeration.txt",
-      "SQL Injection\\Intruder\\Generic_ErrorBased.txt",
-      "SQL Injection\\Intruder\\Generic_Fuzz.txt",
-      "SQL Injection\\Intruder\\Generic_TimeBased.txt",
-      "SQL Injection\\Intruder\\Generic_UnionSelect.txt",
-      "SQL Injection\\Intruder\\SQLi_Polyglots.txt"
-    ]
-  },
-  "Server Side Include Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Server Side Include Injection\\README.md",
-      "Server Side Include Injection\\Files\\ssi_esi.txt"
-    ]
-  },
-  "Server Side Request Forgery": {
-    "cwe": "CWE-918",
-    "owasp": "A10:2021",
-    "safe_default": false,
-    "payload_files": [
-      "Server Side Request Forgery\\README.md",
-      "Server Side Request Forgery\\SSRF-Advanced-Exploitation.md",
-      "Server Side Request Forgery\\SSRF-Cloud-Instances.md",
-      "Server Side Request Forgery\\Files\\ip.py"
-    ]
-  },
-  "Server Side Template Injection": {
-    "cwe": "CWE-94",
-    "owasp": "A03:2021",
-    "safe_default": false,
-    "payload_files": [
-      "Server Side Template Injection\\ASP.md",
-      "Server Side Template Injection\\Elixir.md",
-      "Server Side Template Injection\\Java.md",
-      "Server Side Template Injection\\JavaScript.md",
-      "Server Side Template Injection\\PHP.md",
-      "Server Side Template Injection\\Python.md",
-      "Server Side Template Injection\\README.md",
-      "Server Side Template Injection\\Ruby.md"
-    ]
-  },
-  "Tabnabbing": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Tabnabbing\\README.md"
-    ]
-  },
-  "Type Juggling": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Type Juggling\\README.md"
-    ]
-  },
-  "Upload Insecure Files": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Upload Insecure Files\\README.md",
-      "Upload Insecure Files\\Configuration Apache .htaccess\\README.md",
-      "Upload Insecure Files\\Configuration Python __init__.py\\python-generate-init.py",
-      "Upload Insecure Files\\CVE FFmpeg HLS\\gen_avi_bypass.py",
-      "Upload Insecure Files\\CVE FFmpeg HLS\\gen_xbin_avi.py",
-      "Upload Insecure Files\\CVE ZIP Symbolic Link\\generate.sh",
-      "Upload Insecure Files\\EICAR\\eicar.txt",
-      "Upload Insecure Files\\Picture Compression\\createBulletproofJPG.py",
-      "Upload Insecure Files\\Picture Metadata\\Build_image_to_LFI.py"
-    ]
-  },
-  "Virtual Hosts": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Virtual Hosts\\README.md"
-    ]
-  },
-  "Web Cache Deception": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Web Cache Deception\\README.md",
-      "Web Cache Deception\\Intruders\\param_miner_lowercase_headers.txt"
-    ]
-  },
-  "Web Sockets": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Web Sockets\\README.md",
-      "Web Sockets\\Files\\ws-harness.py"
-    ]
-  },
-  "XPATH Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "XPATH Injection\\README.md"
-    ]
-  },
-  "XS-Leak": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "XS-Leak\\README.md"
-    ]
-  },
-  "XSLT Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "XSLT Injection\\README.md"
-    ]
-  },
-  "XSS Injection": {
-    "cwe": "CWE-79",
-    "owasp": "A03:2021",
-    "safe_default": true,
-    "payload_files": [
-      "XSS Injection\\1 - XSS Filter Bypass.md",
-      "XSS Injection\\2 - XSS Polyglot.md",
-      "XSS Injection\\3 - XSS Common WAF Bypass.md",
-      "XSS Injection\\4 - CSP Bypass.md",
-      "XSS Injection\\5 - XSS in Angular.md",
-      "XSS Injection\\README.md",
-      "XSS Injection\\Intruders\\0xcela_event_handlers.txt",
-      "XSS Injection\\Intruders\\BRUTELOGIC-XSS-JS.txt",
-      "XSS Injection\\Intruders\\BRUTELOGIC-XSS-STRINGS.txt",
-      "XSS Injection\\Intruders\\IntrudersXSS.txt",
-      "XSS Injection\\Intruders\\JHADDIX_XSS.txt",
-      "XSS Injection\\Intruders\\jsonp_endpoint.txt",
-      "XSS Injection\\Intruders\\MarioXSSVectors.txt",
-      "XSS Injection\\Intruders\\port_swigger_xss_cheatsheet_event_handlers.txt",
-      "XSS Injection\\Intruders\\RSNAKE_XSS.txt",
-      "XSS Injection\\Intruders\\XSSDetection.txt",
-      "XSS Injection\\Intruders\\xss_alert.txt",
-      "XSS Injection\\Intruders\\xss_alert_identifiable.txt",
-      "XSS Injection\\Intruders\\xss_payloads_quick.txt",
-      "XSS Injection\\Intruders\\XSS_Polyglots.txt",
-      "XSS Injection\\Intruders\\xss_swf_fuzz.txt"
-    ]
-  },
-  "XXE Injection": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "XXE Injection\\README.md",
-      "XXE Injection\\Intruders\\xml-attacks.txt",
-      "XXE Injection\\Intruders\\XXE_Fuzzing.txt"
-    ]
-  },
-  "Zip Slip": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "Zip Slip\\README.md"
-    ]
-  },
-  "_LEARNING_AND_SOCIALS": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "_LEARNING_AND_SOCIALS\\BOOKS.md",
-      "_LEARNING_AND_SOCIALS\\TWITTER.md",
-      "_LEARNING_AND_SOCIALS\\YOUTUBE.md"
-    ]
-  },
-  "_template_vuln": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "_template_vuln\\README.md"
-    ]
-  },
-  "AMSI Bypass": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": [
-      "AMSI Bypass\\amsi_bypass_probe.py",
-      "AMSI Bypass\\SAFE_DEFAULT.md"
-    ]
-  },
   "BLE Enumeration": {
     "cwe": "N/A",
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "BLE Enumeration\\ble_enumeration_probe.py",
-      "BLE Enumeration\\SAFE_DEFAULT.md"
+      "BLE Enumeration/ble_enumeration_probe.py",
+      "BLE Enumeration/SAFE_DEFAULT.md"
     ]
   },
   "BOLA": {
@@ -714,8 +25,8 @@
     "owasp": "A01:2021",
     "safe_default": true,
     "payload_files": [
-      "BOLA\\bola_probe.py",
-      "BOLA\\SAFE_DEFAULT.md"
+      "BOLA/bola_probe.py",
+      "BOLA/SAFE_DEFAULT.md"
     ]
   },
   "Bluetooth Packet Injection": {
@@ -723,8 +34,8 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "Bluetooth Packet Injection\\bluetooth_packet_injection_probe.py",
-      "Bluetooth Packet Injection\\SAFE_DEFAULT.md"
+      "Bluetooth Packet Injection/bluetooth_packet_injection_probe.py",
+      "Bluetooth Packet Injection/SAFE_DEFAULT.md"
     ]
   },
   "CoAP Injection": {
@@ -732,8 +43,8 @@
     "owasp": "A03:2021",
     "safe_default": true,
     "payload_files": [
-      "CoAP Injection\\coap_injection_probe.py",
-      "CoAP Injection\\SAFE_DEFAULT.md"
+      "CoAP Injection/coap_injection_probe.py",
+      "CoAP Injection/SAFE_DEFAULT.md"
     ]
   },
   "Credential Dump Audit": {
@@ -741,17 +52,8 @@
     "owasp": "A02:2021",
     "safe_default": true,
     "payload_files": [
-      "Credential Dump Audit\\credential_dump_audit_probe.py",
-      "Credential Dump Audit\\SAFE_DEFAULT.md"
-    ]
-  },
-  "Cron Audit Probe": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": [
-      "Cron Audit Probe\\cron_audit_probe_probe.py",
-      "Cron Audit Probe\\SAFE_DEFAULT.md"
+      "Credential Dump Audit/credential_dump_audit_probe.py",
+      "Credential Dump Audit/SAFE_DEFAULT.md"
     ]
   },
   "DNS Beaconing Test": {
@@ -759,17 +61,8 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "DNS Beaconing Test\\dns_beaconing_test_probe.py",
-      "DNS Beaconing Test\\SAFE_DEFAULT.md"
-    ]
-  },
-  "Exposed Service Probe": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": [
-      "Exposed Service Probe\\exposed_service_probe_probe.py",
-      "Exposed Service Probe\\SAFE_DEFAULT.md"
+      "DNS Beaconing Test/dns_beaconing_test_probe.py",
+      "DNS Beaconing Test/SAFE_DEFAULT.md"
     ]
   },
   "IAM Policy Abuse": {
@@ -777,17 +70,8 @@
     "owasp": "A05:2021",
     "safe_default": true,
     "payload_files": [
-      "IAM Policy Abuse\\iam_policy_abuse_probe.py",
-      "IAM Policy Abuse\\SAFE_DEFAULT.md"
-    ]
-  },
-  "IMDS SSRF Probe": {
-    "cwe": "CWE-918",
-    "owasp": "A10:2021",
-    "safe_default": true,
-    "payload_files": [
-      "IMDS SSRF Probe\\imds_ssrf_probe_probe.py",
-      "IMDS SSRF Probe\\SAFE_DEFAULT.md"
+      "IAM Policy Abuse/iam_policy_abuse_probe.py",
+      "IAM Policy Abuse/SAFE_DEFAULT.md"
     ]
   },
   "JWT Manipulation": {
@@ -795,8 +79,8 @@
     "owasp": "A02:2021",
     "safe_default": true,
     "payload_files": [
-      "JWT Manipulation\\jwt_manipulation_probe.py",
-      "JWT Manipulation\\SAFE_DEFAULT.md"
+      "JWT Manipulation/jwt_manipulation_probe.py",
+      "JWT Manipulation/SAFE_DEFAULT.md"
     ]
   },
   "LMQ Fuzzing": {
@@ -804,8 +88,8 @@
     "owasp": "A03:2021",
     "safe_default": true,
     "payload_files": [
-      "LMQ Fuzzing\\lmq_fuzzing_probe.py",
-      "LMQ Fuzzing\\SAFE_DEFAULT.md"
+      "LMQ Fuzzing/lmq_fuzzing_probe.py",
+      "LMQ Fuzzing/SAFE_DEFAULT.md"
     ]
   },
   "MQTT Injection": {
@@ -813,17 +97,8 @@
     "owasp": "A03:2021",
     "safe_default": true,
     "payload_files": [
-      "MQTT Injection\\mqtt_injection_probe.py",
-      "MQTT Injection\\SAFE_DEFAULT.md"
-    ]
-  },
-  "Outbound Egress Probe": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": [
-      "Outbound Egress Probe\\outbound_egress_probe_probe.py",
-      "Outbound Egress Probe\\SAFE_DEFAULT.md"
+      "MQTT Injection/mqtt_injection_probe.py",
+      "MQTT Injection/SAFE_DEFAULT.md"
     ]
   },
   "RBAC Privilege Escalation": {
@@ -831,17 +106,8 @@
     "owasp": "A01:2021",
     "safe_default": true,
     "payload_files": [
-      "RBAC Privilege Escalation\\rbac_privilege_escalation_probe.py",
-      "RBAC Privilege Escalation\\SAFE_DEFAULT.md"
-    ]
-  },
-  "Reverse Shell Probe": {
-    "cwe": "CWE-77",
-    "owasp": "A03:2021",
-    "safe_default": true,
-    "payload_files": [
-      "Reverse Shell Probe\\reverse_shell_probe_probe.py",
-      "Reverse Shell Probe\\SAFE_DEFAULT.md"
+      "RBAC Privilege Escalation/rbac_privilege_escalation_probe.py",
+      "RBAC Privilege Escalation/SAFE_DEFAULT.md"
     ]
   },
   "S3 Bucket Enumeration": {
@@ -849,17 +115,8 @@
     "owasp": "A04:2021",
     "safe_default": true,
     "payload_files": [
-      "S3 Bucket Enumeration\\s3_bucket_enumeration_probe.py",
-      "S3 Bucket Enumeration\\SAFE_DEFAULT.md"
-    ]
-  },
-  "SMB Null Session Probe": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": [
-      "SMB Null Session Probe\\SAFE_DEFAULT.md",
-      "SMB Null Session Probe\\smb_null_session_probe_probe.py"
+      "S3 Bucket Enumeration/s3_bucket_enumeration_probe.py",
+      "S3 Bucket Enumeration/SAFE_DEFAULT.md"
     ]
   },
   "SNMP Enumeration": {
@@ -867,35 +124,8 @@
     "owasp": "A05:2021",
     "safe_default": true,
     "payload_files": [
-      "SNMP Enumeration\\SAFE_DEFAULT.md",
-      "SNMP Enumeration\\snmp_enumeration_probe.py"
-    ]
-  },
-  "SSL": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": false,
-    "payload_files": [
-      "SSL\\TLS Downgrade Probe\\SAFE_DEFAULT.md",
-      "SSL\\TLS Downgrade Probe\\ssl_tls_downgrade_probe_probe.py"
-    ]
-  },
-  "SUID Binary Audit": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": [
-      "SUID Binary Audit\\SAFE_DEFAULT.md",
-      "SUID Binary Audit\\suid_binary_audit_probe.py"
-    ]
-  },
-  "Sudoers Audit Probe": {
-    "cwe": "N/A",
-    "owasp": "N/A",
-    "safe_default": true,
-    "payload_files": [
-      "Sudoers Audit Probe\\SAFE_DEFAULT.md",
-      "Sudoers Audit Probe\\sudoers_audit_probe_probe.py"
+      "SNMP Enumeration/SAFE_DEFAULT.md",
+      "SNMP Enumeration/snmp_enumeration_probe.py"
     ]
   },
   "Topic Injection": {
@@ -903,8 +133,8 @@
     "owasp": "A01:2021",
     "safe_default": true,
     "payload_files": [
-      "Topic Injection\\SAFE_DEFAULT.md",
-      "Topic Injection\\topic_injection_probe.py"
+      "Topic Injection/SAFE_DEFAULT.md",
+      "Topic Injection/topic_injection_probe.py"
     ]
   },
   "Unquoted Path Audit": {
@@ -912,8 +142,8 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "Unquoted Path Audit\\SAFE_DEFAULT.md",
-      "Unquoted Path Audit\\unquoted_path_audit_probe.py"
+      "Unquoted Path Audit/SAFE_DEFAULT.md",
+      "Unquoted Path Audit/unquoted_path_audit_probe.py"
     ]
   },
   "Vault Enumeration": {
@@ -921,8 +151,8 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "Vault Enumeration\\SAFE_DEFAULT.md",
-      "Vault Enumeration\\vault_enumeration_probe.py"
+      "Vault Enumeration/SAFE_DEFAULT.md",
+      "Vault Enumeration/vault_enumeration_probe.py"
     ]
   },
   "Webshell Detection": {
@@ -930,35 +160,89 @@
     "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "Webshell Detection\\SAFE_DEFAULT.md",
-      "Webshell Detection\\webshell_detection_probe.py"
+      "Webshell Detection/SAFE_DEFAULT.md",
+      "Webshell Detection/webshell_detection_probe.py"
     ]
   },
-  "SSRF Probe": {
-    "cwe": "CWE-918",
-    "owasp": "A10:2021",
-    "safe_default": false,
-    "payload_files": []
-  },
-  "Credential Dump": {
-    "cwe": "CWE-522",
-    "owasp": "A02:2021",
-    "safe_default": false,
-    "payload_files": []
-  },
-  "Privilege Escalation": {
-    "cwe": "CWE-269",
-    "owasp": "A01:2021",
-    "safe_default": false,
-    "payload_files": []
-  },
-  "SSL/TLS Downgrade Probe": {
+  "amis-bypass": {
     "cwe": "N/A",
-    "owasp": "A02:2021",
+    "owasp": "N/A",
     "safe_default": true,
     "payload_files": [
-      "ssl_tls_downgrade_probe/SAFE_DEFAULT.md",
-      "ssl_tls_downgrade_probe/ssl_tls_downgrade_probe_probe.py"
+      "AMSI Bypass/amsi_bypass_probe.py",
+      "AMSI Bypass/SAFE_DEFAULT.md"
+    ]
+  },
+  "cron-audit-probe": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Cron Audit Probe/cron_audit_probe_probe.py",
+      "Cron Audit Probe/SAFE_DEFAULT.md"
+    ]
+  },
+  "exposed-service-probe": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Exposed Service Probe/exposed_service_probe_probe.py",
+      "Exposed Service Probe/SAFE_DEFAULT.md"
+    ]
+  },
+  "imds-ssrf-probe": {
+    "cwe": "CWE-918",
+    "owasp": "A10:2021",
+    "safe_default": true,
+    "payload_files": [
+      "IMDS SSRF Probe/imds_ssrf_probe_probe.py",
+      "IMDS SSRF Probe/SAFE_DEFAULT.md"
+    ]
+  },
+  "outbound-egress-probe": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Outbound Egress Probe/outbound_egress_probe_probe.py",
+      "Outbound Egress Probe/SAFE_DEFAULT.md"
+    ]
+  },
+  "reverse-shell-probe": {
+    "cwe": "CWE-77",
+    "owasp": "A03:2021",
+    "safe_default": true,
+    "payload_files": [
+      "Reverse Shell Probe/reverse_shell_probe_probe.py",
+      "Reverse Shell Probe/SAFE_DEFAULT.md"
+    ]
+  },
+  "smb-null-session-probe": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "SMB Null Session Probe/SAFE_DEFAULT.md",
+      "SMB Null Session Probe/smb_null_session_probe_probe.py"
+    ]
+  },
+  "sudoers-audit-probe": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "Sudoers Audit Probe/SAFE_DEFAULT.md",
+      "Sudoers Audit Probe/sudoers_audit_probe_probe.py"
+    ]
+  },
+  "suid-binary-audit": {
+    "cwe": "N/A",
+    "owasp": "N/A",
+    "safe_default": true,
+    "payload_files": [
+      "SUID Binary Audit/SAFE_DEFAULT.md",
+      "SUID Binary Audit/suid_binary_audit_probe.py"
     ]
   }
 }
