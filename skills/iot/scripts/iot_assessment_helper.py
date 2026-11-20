@@ -26,7 +26,7 @@ class DeviceProfile:
     hostname: str = ""
     mac_oui: str = ""
     open_ports: Dict[str, int] = field(default_factory=dict)
-    banners: Dict[str, str] = field(default_factory=dict)
+    banners: Dict[int, str] = field(default_factory=dict)
     protocols_detected: List[str] = field(default_factory=list)
     known_cwes: List[str] = field(default_factory=list)
     notes: str = ""
