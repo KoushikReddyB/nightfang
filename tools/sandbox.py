@@ -43,7 +43,6 @@ COMMAND_ALLOWLIST: Dict[str, List[str]] = {
         "whoami", "id", "uname", "hostname", "ip", "ifconfig", "netstat",
         "env", "printenv", "date", "uptime", "df", "du", "ps", "top",
         "sha256sum", "sha1sum", "md5sum", "cksum",
-        "python", "python3", "perl", "ruby",
         "nmap", "nslookup", "dig", "host", "traceroute", "ping",
         "curl", "wget", "httpx", "nikto",
         "sublist3r", "theHarvester", "amass", "dnsenum",
@@ -63,15 +62,22 @@ COMMAND_ALLOWLIST: Dict[str, List[str]] = {
 
 
 def _command_name(command: str) -> str:
-    """Extract the base command name from a shell command string."""
-    cmd = command.strip()
+    """Extract the base command name from a shell command string using shlex parsing."""
+    import shlex
+    try:
+        tokens = shlex.split(command)
+    except ValueError:
+        # Fallback: simple split on whitespace
+        tokens = command.strip().split()
+    if not tokens:
+        return ""
     # Strip leading env assignments and shell builtins
-    for prefix in ("sh -c ", "bash -c ", "/bin/sh -c ", "/bin/bash -c "):
-        if cmd.startswith(prefix):
-            cmd = cmd[len(prefix):].strip()
+    cmd = tokens[0]
+    for prefix in ("sh", "bash", "/bin/sh", "/bin/bash"):
+        if cmd == prefix and len(tokens) > 1:
+            cmd = tokens[1]
             break
-    # Take the first word
-    return cmd.split()[0] if cmd.split() else ""
+    return cmd
 
 
 def check_command_allowlist(command: str, allowed_categories: Set[str]) -> Tuple[bool, str]:
@@ -346,9 +352,18 @@ class SandboxRunner:
             safe_env.update(env)
 
         try:
+            # Parse command into tokens and execute with shell=False to prevent injection
+            import shlex as _shlex
+            try:
+                cmd_tokens = _shlex.split(command)
+            except ValueError:
+                cmd_tokens = command.strip().split()
+            if not cmd_tokens:
+                raise ValueError("Empty command")
+            
             proc = subprocess.run(
-                command,
-                shell=True,
+                cmd_tokens,
+                shell=False,
                 cwd=work_dir,
                 env=safe_env,
                 capture_output=True,
@@ -403,7 +418,12 @@ def run_self_tests() -> bool:
 
     # Test 2: Timeout enforcement
     t_start = time.time()
-    sleep_cmd = "ping -n 3 127.0.0.1 >nul" if os.name == "nt" else "sleep 3"
+    # Use a command that will run long enough to timeout
+    # ping is in read_only allowlist; use it without shell redirects
+    if os.name == "nt":
+        sleep_cmd = "ping -n 5 127.0.0.1"
+    else:
+        sleep_cmd = "sleep 3"
     res_timeout = sandbox.run(sleep_cmd, timeout=1)
     duration = time.time() - t_start
     assert res_timeout["status"] == "TIMEOUT", f"Expected TIMEOUT, got: {res_timeout}"
@@ -417,7 +437,7 @@ def run_self_tests() -> bool:
     print("  [PASS] Test 3: Command allowlist blocked destructive command (rm).")
 
     # Test 4: Allowed write command
-    res_write = sandbox.run("mkdir nf_test_dir && echo ok", timeout=10)
+    res_write = sandbox.run("mkdir nf_test_dir", timeout=10)
     assert res_write["status"] == "SUCCESS", f"Write command failed: {res_write}"
     print("  [PASS] Test 4: Allowed write command (mkdir) executed successfully.")
 
