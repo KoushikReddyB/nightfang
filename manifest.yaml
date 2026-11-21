@@ -385,7 +385,7 @@ agents:
 
 agent_taxonomy:
   direct:
-    description: "Reachable directly through manifest capabilities[] routing table (28 agents covering 33 capabilities)"
+    description: "Reachable directly through manifest capabilities[] routing table (28 agents covering 34 direct capabilities; 35 total with repo-graph-memory)"
     agents:
       - id: supervisor
         path: agents/supervisor.md

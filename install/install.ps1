@@ -3,7 +3,9 @@
 # ============================================================
 [CmdletBinding()]
 param(
-    [string]$HermesHome = "$env:USERPROFILE\.hermes"
+    [string]$HermesHome = "$env:USERPROFILE\.hermes",
+    [switch]$SkipSkills,
+    [switch]$SkipClones
 )
 
 $ErrorActionPreference = "Stop"
@@ -50,6 +52,71 @@ if (-not (Test-Path $NfSkillLink)) {
     Copy-Item -Path "$NightfangRoot\skills" -Destination $NfSkillLink -Recurse -Force
 }
 Write-Host "[OK] Linked 31 skills into $NfSkillLink" -ForegroundColor Green
+
+# 3b. Bootstrap Complementary Autonomous Skills (15-Skill Pack)
+if (-not $SkipSkills) {
+    Write-Host "[+] Integrating 15 complementary autonomous skills into Hermes..." -ForegroundColor Blue
+    $CompSkillsDir = Join-Path $HermesHome "skills"
+    $PluginsDir = Join-Path $HermesHome "plugins"
+    $ExtensionsDir = Join-Path $HermesHome "extensions"
+    foreach ($d in @($CompSkillsDir, $PluginsDir, $ExtensionsDir)) {
+        if (-not (Test-Path $d)) { New-Item -ItemType Directory -Path $d -Force | Out-Null }
+    }
+
+    $pythonCmd = (Get-Command python -ErrorAction SilentlyContinue)
+    if ($pythonCmd) {
+        try {
+            & python -m pip install --quiet yt-dlp agent-reach 2>$null
+        } catch { }
+    }
+
+    $npmCmd = (Get-Command npm -ErrorAction SilentlyContinue)
+    if ($npmCmd) {
+        try {
+            & npm install -g defuddle 2>$null
+        } catch { }
+    }
+
+    $skillRepos = @(
+        @{ Name = "agent-reach"; Repo = "https://github.com/Panniantong/Agent-Reach.git"; Target = (Join-Path $CompSkillsDir "agent-reach") },
+        @{ Name = "humanizer"; Repo = "https://github.com/blader/humanizer.git"; Target = (Join-Path $CompSkillsDir "humanizer") },
+        @{ Name = "youtube-skills"; Repo = "https://github.com/ZeroPointRepo/youtube-skills.git"; Target = (Join-Path $CompSkillsDir "youtube-skills") },
+        @{ Name = "mattpocock-skills"; Repo = "https://github.com/mattpocock/skills.git"; Target = (Join-Path $CompSkillsDir "mattpocock") },
+        @{ Name = "addyosmani-agent-skills"; Repo = "https://github.com/addyosmani/agent-skills.git"; Target = (Join-Path $CompSkillsDir "addyosmani") },
+        @{ Name = "minions"; Repo = "https://github.com/agent37-platform/minions.git"; Target = (Join-Path $ExtensionsDir "minions") },
+        @{ Name = "oh-my-hermes"; Repo = "https://github.com/rlaope/oh-my-hermes.git"; Target = (Join-Path $PluginsDir "oh-my-hermes") },
+        @{ Name = "openmontage"; Repo = "https://github.com/OpenMontageInc/OpenMontage.git"; Target = (Join-Path $CompSkillsDir "openmontage") },
+        @{ Name = "browser-harness"; Repo = "https://github.com/browser-use/browser-harness.git"; Target = (Join-Path $CompSkillsDir "browser-harness") },
+        @{ Name = "defuddle"; Repo = "https://github.com/kepano/defuddle.git"; Target = (Join-Path $CompSkillsDir "defuddle") },
+        @{ Name = "loopy"; Repo = "https://github.com/Forward-Future/loopy.git"; Target = (Join-Path $CompSkillsDir "loopy") },
+        @{ Name = "make-interfaces"; Repo = "https://github.com/jakubkrehel/make-interfaces-feel-better.git"; Target = (Join-Path $CompSkillsDir "make-interfaces") },
+        @{ Name = "skillclaw"; Repo = "https://github.com/AMAP-ML/SkillClaw.git"; Target = (Join-Path $PluginsDir "skillclaw") }
+    )
+
+    $gitCmd = (Get-Command git -ErrorAction SilentlyContinue)
+    if (-not $SkipClones -and $gitCmd) {
+        foreach ($item in $skillRepos) {
+            $t = $item.Target
+            $r = $item.Repo
+            if (-not (Test-Path "$t\.git")) {
+                try { & git clone --depth 1 $r $t 2>$null } catch { }
+            }
+        }
+    }
+
+    $mcpJson = Join-Path $HermesHome "mcp.json"
+    if (-not (Test-Path $mcpJson)) {
+        @{
+            mcpServers = @{
+                "codebase-memory" = @{
+                    command = "npx"
+                    args = @("-y", "codebase-memory-mcp")
+                }
+            }
+        } | ConvertTo-Json -Depth 5 | Out-File -FilePath $mcpJson -Encoding utf8
+    }
+    Write-Host "[OK] Complementary autonomous skills and MCP configured in Hermes." -ForegroundColor Green
+}
 
 # 4. Install System Prompt & Config
 Write-Host "[+] Infusing Hermes with NIGHTFANG persona and constitution..." -ForegroundColor Blue
@@ -103,7 +170,7 @@ $meta = @{
     hermes_home        = $HermesHome
     installed_at       = (Get-Date -Format "o")
     agents_count       = 37
-    capabilities_count = 33
+    capabilities_count = 35
     skills_path        = $NfSkillLink
     system_prompt      = "$NfHermesHome\system.md"
     config             = "$NfHermesHome\config.yaml"

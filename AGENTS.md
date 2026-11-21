@@ -196,6 +196,8 @@ flowchart TD
 - **Relational & NoSQL Database Security** (`database-security`) $\to$ `workflows/standard-pentest.md` $\to$ **`database-attacker`** (`skills/web`, `skills/network`, `skills/privilege-escalation`)
 - **Authorized Social Engineering** (`social-engineering`) $\to$ `workflows/social-engineering.md` $\to$ **`social-engineer`** (`skills/initial-access`, `skills/recon`, `skills/utility`)
 - **Full-Scope Adversary Simulation** (`red-team-operations`) $\to$ `workflows/red-team.md` $\to$ **`c2-operator`** (`skills/c2-operations`, `skills/post-exploitation`, `skills/defense-evasion`)
+- **Extended Zero-Fee OSINT Reach** (`extended-osint-reach`) $\to$ `workflows/standard-pentest.md` $\to$ **`recon`** (`skills/recon`, `skills/utility`)
+- **Repository Semantic AST Knowledge Graph** (`repo-graph-memory`) $\to$ `workflows/supply-chain-assessment.md` $\to$ **`code-auditor`** (`skills/web`, `skills/api`, `skills/crypto`)
 
 ---
 
