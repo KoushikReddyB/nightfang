@@ -2,7 +2,7 @@
 
 NIGHTFANG is a modular, autonomous security capability pack that transforms the **Hermes** host runtime into an advanced, continuous penetration testing and vulnerability hunting engine.
 
-When installed into Hermes, NIGHTFANG infuses Hermes with its security persona, **46 specialized agents**, 33 registered capabilities, 17 workflows, **42 skills**, the 6-stage Execution Policy Gateway, and the background Autonomous Hunter Daemon. Whether interacting via **Telegram, Discord, Web UI, or CLI**, the operator communicates directly with NIGHTFANG.
+When installed into Hermes, NIGHTFANG infuses Hermes with its security persona, **46 specialized agents**, 35 registered capabilities, 17 workflows, **42 skills**, the 6-stage Execution Policy Gateway, and the background Autonomous Hunter Daemon. Whether interacting via **Telegram, Discord, Web UI, or CLI**, the operator communicates directly with NIGHTFANG.
 
 ---
 
@@ -130,7 +130,7 @@ powershell -ExecutionPolicy Bypass -File install\status.ps1
 NIGHTFANG deploys **46 specialized agents** across two operational tiers:
 
 ### 1. Direct Entrypoint Agents (27 Agents)
-Cover all 33 registered capabilities from `manifest.yaml`:
+Cover all 35 registered capabilities from `manifest.yaml`:
 - **`supervisor`**: Dynamic orchestration, recursive decomposition, task replanning, and loop prevention.
 - **`recon`**: Domain enumeration, WHOIS/DNS OSINT, attack surface mapping, and initial access delivery staging.
 - **`scanner`**: Web vulnerability analysis, API discovery, and network port/service scanning.

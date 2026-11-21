@@ -15,8 +15,8 @@ Baseline = the cloned repo as-is (commit `b0dd317`). All work branches off `main
 ---
 
 ## Phase 0 — Baseline (DONE)
-- Cloned `nightfang` → `D:/Playground4Hermes/nightfang`
-- Cloned both reference repos → `D:/Playground4Hermes/refs/`
+- Cloned `nightfang` → project root
+- Cloned both reference repos → sibling `refs/` directory
 - Git identity set: `koush` <koushikreddybh@gmail.com>
 - Initial commit marking the baseline.
 

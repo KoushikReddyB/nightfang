@@ -31,3 +31,6 @@ Thumbs.db
 
 # Generated docs/references (keep source, not built outputs)
 references/payloads/index.json~
+
+# Local development plans (not for repo)
+REVIEW-REMEDIATION-PLAN.md
