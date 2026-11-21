@@ -360,9 +360,16 @@ class SandboxRunner:
                 cmd_tokens = command.strip().split()
             if not cmd_tokens:
                 raise ValueError("Empty command")
-            
+
+            # Windows shell builtins need cmd.exe /c wrapper when shell=False
+            exec_tokens = list(cmd_tokens)
+            if os.name == "nt" and cmd_tokens and cmd_tokens[0].lower() in (
+                "echo", "dir", "type", "cls", "ver", "cd", "ren", "move", "copy", "del",
+            ):
+                exec_tokens = ["cmd.exe", "/c"] + exec_tokens
+
             proc = subprocess.run(
-                cmd_tokens,
+                exec_tokens,
                 shell=False,
                 cwd=work_dir,
                 env=safe_env,

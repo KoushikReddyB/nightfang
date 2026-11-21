@@ -85,7 +85,7 @@ Nightfang strictly enforces the separation of concerns across the pack:
 
 ### Agent Exposure Taxonomy: Direct vs. Delegated Agents
 NIGHTFANG deploys **46 specialized agents** organized into two operational tiers:
-1. **Direct Entrypoint Agents (27 agents)**: Directly reachable via the Capability Router from incoming operator requests matching `manifest.yaml capabilities[]`. Because `scanner` handles 3 distinct network/web/API capabilities, and `recon`, `privesc-advisor`, and `c2-operator` handle dual capabilities, 27 direct agents service all 33 registered capabilities (including `supervisor` for autonomous supervision).
+1. **Direct Entrypoint Agents (27 agents)**: Directly reachable via the Capability Router from incoming operator requests matching `manifest.yaml capabilities[]`. These 27 direct agents service 34 direct capabilities (and 35 total registered capabilities including `repo-graph-memory`), with `supervisor` managing autonomous supervision, `scanner` handling 3 capabilities, `recon` handling 3 capabilities (including the restored `extended-osint-reach`), and `privesc-advisor` and `c2-operator` handling dual capabilities.
 2. **Delegated Specialist Agents (19 agents)**: Secondary specialists invoked downstream by workflows or primary agents to perform deep analytical or lifecycle sub-tasks:
    - **`detection-engineer`**: Invoked by purple-team workflows and `reporter` to author vendor-neutral Sigma rules, Sentinel KQL, and Splunk SPL queries.
    - **`threat-modeler`**: Invoked during Phase 1 architecture review to decompose trust boundaries and data flows (STRIDE/PASTA) before active probing.
@@ -160,7 +160,9 @@ flowchart TD
     REP --> O["11. Host Runtime Delivery<br/>(Hermes Interface)"]
 ```
 
-### Capability Router Summary (33 Capabilities)
+### Capability Router Summary (35 Capabilities)
+- **Extended Zero-Fee OSINT Reach** (`extended-osint-reach`) $\to$ `workflows/standard-pentest.md` $\to$ **`recon`** (`skills/recon`, `skills/utility`)
+- **Repository Semantic AST Knowledge Graph** (`repo-graph-memory`) $\to$ `workflows/supply-chain-assessment.md` $\to$ **`code-auditor`** (`skills/web`, `skills/api`, `skills/crypto`)
 - **Autonomous Supervision & Dynamic Orchestration** (`autonomous-supervision`) $\to$ `workflows/dynamic-supervision.md` $\to$ **`supervisor`** (`skills/utility`, `skills/hunting`, `skills/reporting`)
 - **Domains, CIDRs, IPs** (`attack-surface-mapping`) $\to$ `workflows/standard-pentest.md` $\to$ **`recon`** (`skills/recon`)
 - **Web Applications, URLs, SPAs** (`web-application-security`) $\to$ `workflows/web-assessment.md` $\to$ **`scanner`** (`skills/web`, `skills/hunting`)

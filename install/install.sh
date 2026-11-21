@@ -199,7 +199,7 @@ cat > "$NF_HERMES_HOME/installation.json" <<EOF
   "hermes_home": "$HERMES_HOME",
   "installed_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
   "agents_count": 47,
-  "capabilities_count": 33,
+  "capabilities_count": 35,
   "skills_path": "$NF_SKILL_LINK",
   "system_prompt": "$NF_HERMES_HOME/system.md",
   "config": "$NF_HERMES_HOME/config.yaml",
