@@ -182,27 +182,27 @@ class TestPayloadResolverIntegration(unittest.TestCase):
             self.assertIn("payload_count", c)
 
     def test_resolver_by_class(self):
-        sqli = self.resolver.get_by_class("JWT Manipulation")
-        self.assertIsNotNone(sqli)
-        self.assertEqual(sqli["cwe"], "CWE-327")
-        self.assertEqual(sqli["owasp"], "A02:2021")
-        self.assertTrue(sqli["safe_default"])
-        self.assertGreater(len(sqli["payload_files"]), 0)
+        jwt = self.resolver.get_by_class("jwt_manipulation")
+        self.assertIsNotNone(jwt)
+        self.assertEqual(jwt["cwe"], "CWE-327")
+        self.assertEqual(jwt["owasp"], "A02:2021")
+        self.assertTrue(jwt["safe_default"])
+        self.assertGreater(len(jwt["payload_files"]), 0)
 
     def test_resolver_by_cwe(self):
         matches = self.resolver.get_by_cwe("CWE-943")
-        self.assertGreaterEqual(len(matches), 2)  # CoAP Injection + LMQ Fuzzing + MQTT Injection
+        self.assertGreaterEqual(len(matches), 3)  # coap_injection + lmq_fuzzing + mqtt_injection
         classes = [m["class"] for m in matches]
-        self.assertIn("CoAP Injection", classes)
-        self.assertIn("MQTT Injection", classes)
+        self.assertIn("coap_injection", classes)
+        self.assertIn("mqtt_injection", classes)
 
     def test_resolver_by_owasp(self):
         matches = self.resolver.get_by_owasp("A02:2021")
-        self.assertGreaterEqual(len(matches), 2)  # JWT Manipulation + BOLA at minimum
+        self.assertGreaterEqual(len(matches), 2)  # jwt_manipulation + BOLA at minimum
 
     def test_safe_vs_destructive_split(self):
-        safe = self.resolver.get_safe_payloads("JWT Manipulation")
-        dest = self.resolver.get_destructive_payloads("JWT Manipulation")
+        safe = self.resolver.get_safe_payloads("jwt_manipulation")
+        dest = self.resolver.get_destructive_payloads("jwt_manipulation")
         self.assertGreater(len(safe), 0)
         self.assertEqual(len(dest), 0)
 

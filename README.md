@@ -2,7 +2,7 @@
 
 NIGHTFANG is a modular, autonomous security capability pack that transforms the **Hermes** host runtime into an advanced, continuous penetration testing and vulnerability hunting engine.
 
-When installed into Hermes, NIGHTFANG infuses Hermes with its security persona, **46 specialized agents**, 35 registered capabilities, 17 workflows, **42 skills**, the 6-stage Execution Policy Gateway, and the background Autonomous Hunter Daemon. Whether interacting via **Telegram, Discord, Web UI, or CLI**, the operator communicates directly with NIGHTFANG.
+When installed into Hermes, NIGHTFANG infuses Hermes with its security persona, **46 specialized agents**, 35 registered capabilities, 26 workflows, **42 skills**, the 6-stage Execution Policy Gateway, and the background Autonomous Hunter Daemon. Whether interacting via **Telegram, Discord, Web UI, or CLI**, the operator communicates directly with NIGHTFANG.
 
 ---
 
@@ -190,10 +190,10 @@ Located in `skills/`, loaded on-demand:
 
 ---
 
-## 17 Execution Workflows
+## 26 Execution Workflows
 
 Located in `workflows/`:
-1. `dynamic-supervision.md`: Autonomous dynamic 4-step loop (Decompose $\to$ Dispatch $\to$ Execute $\to$ Reflect).
+1. `dynamic-supervision.md`: Autonomous dynamic 4-step loop (Decompose → Dispatch → Execute → Reflect).
 2. `standard-pentest.md`: Full 10-phase enterprise penetration test.
 3. `web-assessment.md`: Dedicated web application assessment.
 4. `api-assessment.md`: REST, GraphQL, and gRPC security audit.
@@ -210,6 +210,15 @@ Located in `workflows/`:
 15. `red-team.md`: Full-scope multi-stage adversary simulation and covert egress testing.
 16. `reverse-engineering.md`: Binary analysis, protocol reverse engineering, and disassembly.
 17. `social-engineering.md`: Authorized phishing, payload delivery simulation, and awareness assessment.
+18. `blockchain-assessment.md`: Smart contract, DeFi, and blockchain protocol security review.
+19. `configuration-review.md`: Hardening baseline validation against CIS benchmarks and security best practices.
+20. `devsecops-pipeline-review.md`: Secure development lifecycle gate review and policy enforcement.
+21. `firewall-assessment.md`: Firewall rule audit, zone boundary validation, and ingress/egress policy review.
+22. `forensic-investigation.md`: Incident response digital forensics and evidence preservation workflow.
+23. `osint-collection.md`: Open-source intelligence gathering and public attribution analysis.
+24. `secure-code-review.md`: Manual and automated source code security review methodology.
+25. `thick-client-assessment.md`: Native desktop and thick-client application security assessment.
+26. `threat-modeling.md`: STRIDE/PASTA threat modeling and attack surface decomposition methodology.
 
 ---
 
